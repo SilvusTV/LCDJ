@@ -1,36 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{
+  --orange-light: #FFF8E9;
+  --orange-dark: #F1975F;
+  --blue-light: #8AB7DD;
+  --blue-dark: #005BD4;
 }
 
-html,
-body,
-#app {
-  background-color: #F7F8FA;
-  font-family: 'Poppins', sans-serif;
-  color: #46444c;
-  height: 100%;
+html{
+  background-color: var(--orange-light);
+  font-family: Poppins, sans-serif;
+}
+
+.bg-orange-light{
+  background-color: var(--orange-light);
+}
+.bg-orange-dark{
+  background-color: var(--orange-dark);
+}
+.bg-blue-light{
+  background-color: var(--blue-light);
+}
+.bg-blue-dark{
+  background-color: var(--blue-dark);
+}
+
+.text-orange-light{
+  color: var(--orange-light);
+}
+.text-orange-dark{
+  color: var(--orange-dark);
+}
+.text-blue-light{
+  color: var(--blue-light);
+}
+.text-blue-dark{
+  color: var(--blue-dark);
+}
+
+.border-orange-light{
+  border-color: var(--orange-light);
+}
+.border-orange-dark{
+  border-color: var(--orange-dark);
+}
+.border-blue-light{
+  border-color: var(--blue-light);
+}
+.border-blue-dark{
+  border-color: var(--blue-dark);
+}
+
+/* wave */
+.custom-shape-divider-bottom-1714036479 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
 }
 
-.title {
-  font-size: 42px;
-  font-weight: 500;
-  color: #5a45ff;
+.custom-shape-divider-bottom-1714036479 svg {
+  position: relative;
+  display: block;
+  width: calc(149% + 1.3px);
+  height: 123px;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-
-a {
-  text-decoration: underline;
-  color: #5a45ff;
+.custom-shape-divider-bottom-1714036479 .shape-fill {
+  fill: var(--blue-dark);
 }
