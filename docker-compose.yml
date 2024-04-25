@@ -1,0 +1,16 @@
+services:
+  #serveur de base de donnees
+  database:
+    image: 'mariadb:10.3'
+    container_name: database
+    restart: always
+    environment:
+      - MYSQL_USER: LCDJ
+      - MYSQL_PASSWORD: LCDJpassword
+      - MYSQL_DATABASE: LCDJDatabase
+      - MYSQL_ROOT_PASSWORD: LCDJrootpassword*
+
+    ports:
+      - '3306:3306'
+    volumes:
+      - ${PWD}/mariadb/:/var/lib/mysql/
