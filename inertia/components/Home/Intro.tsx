@@ -28,7 +28,7 @@ export default function Intro() {
           </div>
         </div>
       </div>
-      <Wave />
+      <Wave className={'fill-orange-dark'}/>
     </>
   )
 }

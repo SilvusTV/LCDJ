@@ -14,6 +14,7 @@
     "typecheck": "tsc --noEmit"
   },
   "imports": {
+    "#images/*": "./inertia/images/*",
     "#components/*": "./inertia/components/*.tsx",
     "#controllers/*": "./app/controllers/*.js",
     "#exceptions/*": "./app/exceptions/*.js",

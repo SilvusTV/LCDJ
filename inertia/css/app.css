@@ -53,6 +53,19 @@ html{
   border-color: var(--blue-dark);
 }
 
+.fill-orange-light{
+  fill: var(--orange-light);
+}
+.fill-orange-dark{
+  fill: var(--orange-dark);
+}
+.fill-blue-light{
+  fill: var(--blue-light);
+}
+.fill-blue-dark{
+  fill: var(--blue-dark);
+}
+
 /* wave */
 .custom-shape-divider-bottom-1714036479 {
   position: absolute;
@@ -71,6 +84,20 @@ html{
   height: 123px;
 }
 
-.custom-shape-divider-bottom-1714036479 .shape-fill {
-  fill: var(--blue-dark);
+/* wave2 */
+.custom-shape-divider-top-1714053856 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1714053856 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 121px;
+  transform: rotateY(180deg);
 }
