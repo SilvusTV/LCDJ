@@ -18,14 +18,25 @@ export default function Footer() {
       </div>
       <div className={'flex flex-col gap-0.5 w-2/12 flex-wrap'}>
         <h2 className={'font-bold mb-4'}>Nos réseaux Sociaux</h2>
-        <a href="">Instagram</a>
-        <a href="">Facebook</a>
-        <a href="">Linkedin</a>
-        <a href="">TikTok</a>
+        <a
+          href="https://www.instagram.com/laconservedesjeunes?igsh=eDAyNXdqam94OXEy"
+          target={'_blank'}
+        >
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61557393121421" target={'_blank'}>
+          Facebook
+        </a>
+        <a href="https://www.linkedin.com/company/la-conserve-des-jeunes/" target={'_blank'}>
+          Linkedin
+        </a>
+        <a href="https://www.tiktok.com/@laconservedesjeunes?_t=8mBS7aOCinp&_r=1" target={'_blank'}>
+          TikTok
+        </a>
       </div>
-      <div className={'flex flex-col gap-0.5 w-2/12 flex-wrap'}>
+      <div className={'flex flex-col gap-0.5 min-w-2/12 flex-wrap text-wrap'}>
         <h2 className={'font-bold mb-4'}>Nous Contacter</h2>
-        <a href="">example@mail.com</a>
+        <a href="mailto:laconservedesjeunes@gmail.com">laconservedesjeunes@gmail.com</a>
         <a href="">010203040506</a>
         <a href="">adresse</a>
       </div>
