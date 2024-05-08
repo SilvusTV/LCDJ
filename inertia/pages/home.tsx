@@ -2,6 +2,7 @@ import { Head } from '@inertiajs/react'
 import Intro from '~/components/Home/Intro'
 import Actus from '~/components/Home/Actus'
 import Actions from '~/components/Home/Actions'
+import Insight from "~/components/Home/Insight";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <Intro />
         <Actus />
         <Actions />
+        <Insight />
       </div>
     </>
   )

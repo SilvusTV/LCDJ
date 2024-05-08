@@ -1,4 +1,4 @@
-import LOGO from './../images/LOGO.png'
+import LOGO from '/inertia/images/LOGO.png'
 export default function LCDJLogo(props: { className?: string }) {
   return (
     <>

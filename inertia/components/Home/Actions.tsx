@@ -3,14 +3,14 @@ import Wave2 from '~/components/SVG/Wave2'
 export default function Actions() {
   return (
     <div className={'relative bg-blue-dark flex flex-col items-center'}>
-      <Wave2 className={'fill-orange-dark'}/>
+      <Wave2 className={'fill-orange-dark'} />
       <h1 className={'text-7xl text-center font-extrabold m-20 text-white'}>Nos Actions</h1>
       <p className={'text-2xl text-justify w-2/5 text-white'}>
         Une volonté simple dicte nos actions : permettre aux jeunes de subvenir à leurs besoins
         alimentaires et hygiéniques de base gratuitement. C'est comme ça qu'est né le projet
         "renfloue ton placard".
       </p>
-      <div className={'grid grid-cols-2 grid-rows-2 gap-4 w-10/12 my-10'}>
+      <div className={'grid grid-cols-2 grid-rows-2 gap-4 w-10/12 mt-10 mb-40'}>
         <div className={'relative flex content-center justify-center items-center'}>
           <p className={`text-2xl text-center bg-orange-light p-10 rounded-xlg`}>
             La première étape consiste à collecter une fois par mois les denrées alimentaires et
