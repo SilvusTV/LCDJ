@@ -22,7 +22,6 @@ export default function getScrollPercentage() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-  console.log(scrollPercentage)
   return {
     scrollYPosition,
     scrollMaxY,
