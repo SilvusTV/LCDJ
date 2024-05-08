@@ -79,7 +79,9 @@ html{
 .transform-translate{
   transform: translate(50%, -50%);
 }
-
+.translate-y--100{
+  transform: translateY(-100%);
+}
 /* wave */
 .custom-shape-divider-bottom-1714036479 {
   margin-top: -130px;
