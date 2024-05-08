@@ -4,7 +4,7 @@ export default function Actions() {
   return (
     <div className={'relative bg-blue-dark flex flex-col items-center'}>
       <Wave2 className={'fill-orange-dark'} />
-      <h1 className={'text-7xl text-center font-extrabold m-20 text-white'}>Nos Actions</h1>
+      <h1 className={'text-7xl text-center font-extrabold m-20 mt-0 text-white'}>Nos Actions</h1>
       <p className={'text-2xl text-justify w-2/5 text-white'}>
         Une volonté simple dicte nos actions : permettre aux jeunes de subvenir à leurs besoins
         alimentaires et hygiéniques de base gratuitement. C'est comme ça qu'est né le projet

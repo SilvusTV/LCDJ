@@ -82,9 +82,7 @@ html{
 
 /* wave */
 .custom-shape-divider-bottom-1714036479 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  margin-top: -130px;
   width: 100%;
   overflow: hidden;
   line-height: 0;
@@ -100,9 +98,6 @@ html{
 
 /* wave2 */
 .custom-shape-divider-top-1714053856 {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   overflow: hidden;
   line-height: 0;

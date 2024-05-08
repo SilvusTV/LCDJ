@@ -1,11 +1,10 @@
 import LCDJLogo from '#components/LCDJLogo'
-import Button from '~/components/Button'
 import Wave from '~/components/SVG/Wave'
 
 export default function Intro() {
   return (
     <>
-      <div className={'flex h-screen w-10/12 self-center gap-20'}>
+      <div className={'flex min-h-screen w-10/12 self-center gap-20'}>
         <div className={'flex flex-col justify-center items-center w-2/5 gap-10'}>
           <LCDJLogo className={'h-1/12'} />
           <p className={'text-4xl font-bold text-center my-6'}>La Converse des Jeunes</p>
@@ -21,14 +20,32 @@ export default function Intro() {
             📢<b>Nos actions ?</b> Des distributions de paniers solidaires gratuits à destination
             des jeunes de 18 à 25 ans au cours d'ateliers conviviaux et créatifs.
           </p>
-          <div className={'flex justify-evenly my-6 text-xl'}>
-            <Button>Réserve ton panier</Button>
-            <Button>Deviens bénévole</Button>
-            <Button>Fais un don</Button>
+          <div className={'flex justify-evenly my-6 text-xl gap-2 text-center items-center mb-10'}>
+            <a
+              className={
+                'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark hover:bg-orange-dark transition-background-color cursor-pointer'
+              }
+            >
+              Réserve ton panier
+            </a>
+            <a
+              className={
+                'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark hover:bg-orange-dark transition-background-color cursor-pointer'
+              }
+            >
+              Deviens bénévole
+            </a>
+            <a
+              className={
+                'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark hover:bg-orange-dark transition-background-color cursor-pointer'
+              }
+            >
+              Fais un don
+            </a>
           </div>
         </div>
       </div>
-      <Wave className={'fill-orange-dark'}/>
+      <Wave className={'fill-orange-dark'} />
     </>
   )
 }
