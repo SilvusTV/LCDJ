@@ -5,7 +5,7 @@ export default function Partners() {
     <div className={'flex relative bg-blue-light min-h-screen flex-col items-center'}>
       <Wave2 className={'fill-orange-dark'} />
       <h1 className={'text-7xl text-center font-extrabold m-20 '}>Nos Partenaires</h1>
-      <div className={'w-3/5 flex flex-row items-center gap-14 justify-center flex-wrap mt-20'}>
+      <div className={'w-3/5 flex flex-row items-center gap-14 justify-center flex-wrap mt-40'}>
         <img src="/inertia/images/CVEC.png" alt="CVEC" className={'partner-img'} />
         <img src="/inertia/images/Crous.png" alt="Crous" className={'partner-img'} />
         <img src="/inertia/images/Deloitte.png" alt="Deloitte" className={'partner-img'} />

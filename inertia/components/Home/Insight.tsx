@@ -19,31 +19,31 @@ export default function Insight() {
         <div className="grid grid-cols-5 grid-rows-2 gap-10 w-3/4 text-center ">
           <div className={'flex flex-col gap-10'}>
             <p className={'text-6xl font-bold text-stroke'}>
-              {scrollMax > 70 ? <AnimatedNumber n={414} /> : 414}
+              {scrollMax > 63 ? <AnimatedNumber n={414} /> : 414}
             </p>
             <p className={'text-2xl col-start-1 row-start-2'}>Paniers distribués</p>
           </div>
           <div className={'flex flex-col gap-10'}>
             <p className={'text-6xl font-bold text-stroke col-start-2 row-start-1'}>
-              {scrollMax > 70 ? <AnimatedNumber n={3} /> : 3}
+              {scrollMax > 63 ? <AnimatedNumber n={3} /> : 3}
             </p>
             <p className={'text-2xl col-start-2 row-start-2'}>Tonnes de produits collectés</p>
           </div>
           <div className={'flex flex-col gap-10'}>
             <p className={'text-6xl font-bold text-stroke col-start-3 row-start-1'}>
-              {scrollMax > 70 ? <AnimatedNumber n={7} /> : 7}
+              {scrollMax > 63 ? <AnimatedNumber n={7} /> : 7}
             </p>
             <p className={'text-2xl col-start-3 row-start-2'}>Ateliers culturels réalisés</p>
           </div>
           <div className={'flex flex-col gap-10'}>
             <p className={'text-6xl font-bold text-stroke col-start-4 row-start-1'}>
-              {scrollMax > 70 ? <AnimatedNumber n={14} /> : 14}
+              {scrollMax > 63 ? <AnimatedNumber n={14} /> : 14}
             </p>
             <p className={'text-2xl col-start-4 row-start-2'}>Distrtibution organisées</p>
           </div>
           <div className={'flex flex-col gap-10'}>
             <p className={'text-6xl font-bold text-stroke col-start-5 row-start-1'}>
-              {scrollMax > 70 ? <AnimatedNumber n={65} /> : 65}
+              {scrollMax > 63 ? <AnimatedNumber n={65} /> : 65}
             </p>
             <p className={'text-2xl'}>Bénévoles mobilisés</p>
           </div>
