@@ -1,20 +1,20 @@
 import { Head } from '@inertiajs/react'
 import Intro from '~/components/Home/Intro'
-import Actus from '~/components/Home/Actus'
+import News from '~/components/Home/News'
 import Actions from '~/components/Home/Actions'
 import Insight from '~/components/Home/Insight'
-import Partenaires from '~/components/Home/Partenaires'
+import Partners from '~/components/Home/Partners'
 
 export default function Home() {
   return (
     <>
-      <Head title="Homepage2" />
+      <Head title="La conserve des jeunes" />
       <div className={'flex flex-col justify-center'}>
         <Intro />
-        <Actus />
+        <News />
         <Actions />
         <Insight />
-        <Partenaires />
+        <Partners />
       </div>
     </>
   )

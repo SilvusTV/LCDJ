@@ -1,6 +1,6 @@
 import Wave2 from '~/components/SVG/Wave2'
 
-export default function Partenaires() {
+export default function Partners() {
   return (
     <div className={'flex relative bg-blue-light min-h-screen flex-col items-center'}>
       <Wave2 className={'fill-orange-dark'} />
