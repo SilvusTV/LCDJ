@@ -12,6 +12,11 @@ export default function Actions() {
       </p>
       <div className={'grid grid-cols-2 grid-rows-2 gap-4 w-10/12 mt-10 mb-40'}>
         <div className={'relative flex content-center justify-center items-center'}>
+          <img
+            src={'/inertia/images/1.png'}
+            alt={'1'}
+            className={'absolute h-32 top-10 left-0 transform-translate'}
+          />
           <p className={`text-2xl text-center bg-orange-light p-10 rounded-xlg`}>
             La première étape consiste à collecter une fois par mois les denrées alimentaires et
             produits d’hygiène en supermarché auprès des clients des supermarchés et à l'aide de nos
@@ -22,6 +27,11 @@ export default function Actions() {
         <div className={'col-start-1 row-start-2'}></div>
         <div className={'col-start-2 row-start-1'}></div>
         <div className={'relative flex content-center justify-center items-center'}>
+          <img
+            src={'/inertia/images/2.png'}
+            alt={'2'}
+            className={'absolute h-32 top-0 right-0 transform-translate'}
+          />
           <p className={'text-2xl text-center bg-orange-light p-10 rounded-xlg'}>
             Les paniers sont ensuite distribués aux jeunes de 18 à 25 ans préalablement inscrits au
             cours de distributions. Nous en organisons deux par mois, dans le 9e et 18e
