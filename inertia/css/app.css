@@ -112,3 +112,12 @@ html{
   height: 121px;
   transform: rotateY(180deg);
 }
+/* functional classes */
+#intro-button{
+  & a{
+    transition: background-color 0.2s;
+    &:hover{
+      background-color: var(--orange-dark);
+    }
+  }
+}

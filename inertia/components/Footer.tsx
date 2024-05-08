@@ -11,9 +11,9 @@ export default function Footer() {
       </div>
       <div className={'flex flex-col gap-0.5 w-2/12 flex-wrap'}>
         <h2 className={'font-bold mb-4'}>Liens utile</h2>
-        <a href="">Réserve ton panier</a>
-        <a href="">Deviens bénévole</a>
-        <a href="">Fais un don</a>
+        <a href="https://linktr.ee/laconservedesjeunes">Réserve ton panier</a>
+        <a href="https://tr.ee/Sy4vuVFgd2">Deviens bénévole</a>
+        <a href="https://tr.ee/2dBXXZutTF">Fais un don</a>
         <a href="">Mentions légale</a>
       </div>
       <div className={'flex flex-col gap-0.5 w-2/12 flex-wrap'}>
@@ -37,8 +37,11 @@ export default function Footer() {
       <div className={'flex flex-col gap-0.5 min-w-2/12 flex-wrap text-wrap'}>
         <h2 className={'font-bold mb-4'}>Nous Contacter</h2>
         <a href="mailto:laconservedesjeunes@gmail.com">laconservedesjeunes@gmail.com</a>
-        <a href="">010203040506</a>
-        <a href="">adresse</a>
+        <a href="tel:0777820536">07-77-82-05-36</a>
+        <a href="https://www.google.fr/maps/place/54+Rue+Jean-Baptiste+Pigalle,+75009+Paris/@48.8810495,2.3334594,17z/data=!3m1!4b1!4m6!3m5!1s0x47e66e460f902e05:0xd5e76520c035493d!8m2!3d48.8810495!4d2.3360343!16s%2Fg%2F11c5fkkwsy?entry=ttu">
+          54 rue Jean-Baptiste Pigalle,
+          <br /> 75009 Paris
+        </a>
       </div>
     </div>
   )

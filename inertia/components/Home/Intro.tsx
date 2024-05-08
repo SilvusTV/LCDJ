@@ -20,10 +20,13 @@ export default function Intro() {
             📢<b>Nos actions ?</b> Des distributions de paniers solidaires gratuits à destination
             des jeunes de 18 à 25 ans au cours d'ateliers conviviaux et créatifs.
           </p>
-          <div className={'flex justify-evenly my-6 text-xl gap-2 text-center items-center mb-10'}>
+          <div
+            className={'flex justify-evenly my-6 text-xl gap-2 text-center items-center mb-10'}
+            id={'intro-button'}
+          >
             <a
               className={
-                'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark hover:bg-orange-dark transition-background-color cursor-pointer'
+                'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark cursor-pointer'
               }
               href={'https://linktr.ee/laconservedesjeunes'}
               target={'_blank'}
