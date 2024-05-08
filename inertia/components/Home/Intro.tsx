@@ -25,6 +25,8 @@ export default function Intro() {
               className={
                 'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark hover:bg-orange-dark transition-background-color cursor-pointer'
               }
+              href={'https://linktr.ee/laconservedesjeunes'}
+              target={'_blank'}
             >
               Réserve ton panier
             </a>
@@ -32,6 +34,8 @@ export default function Intro() {
               className={
                 'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark hover:bg-orange-dark transition-background-color cursor-pointer'
               }
+              href={'https://tr.ee/Sy4vuVFgd2'}
+              target={'_blank'}
             >
               Deviens bénévole
             </a>
@@ -39,6 +43,8 @@ export default function Intro() {
               className={
                 'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark hover:bg-orange-dark transition-background-color cursor-pointer'
               }
+              href={'https://tr.ee/2dBXXZutTF'}
+              target={'_blank'}
             >
               Fais un don
             </a>
