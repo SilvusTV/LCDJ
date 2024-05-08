@@ -4,6 +4,7 @@ import News from '~/components/Home/News'
 import Actions from '~/components/Home/Actions'
 import Insight from '~/components/Home/Insight'
 import Partners from '~/components/Home/Partners'
+import Footer from '~/components/Footer'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Actions />
         <Insight />
         <Partners />
+        <Footer />
       </div>
     </>
   )
