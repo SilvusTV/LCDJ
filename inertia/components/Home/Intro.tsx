@@ -1,9 +1,19 @@
 import LCDJLogo from '#components/LCDJLogo'
 import Wave from '~/components/SVG/Wave'
+import { useApi } from '~/utils/ApiRequest'
+import { useEffect, useState } from 'react'
 
 export default function Intro() {
+  const [links, setLinks] = useState<Array<string>>([])
+  const { data: rawLink } = useApi('getLinks', { method: 'GET' })
+  useEffect(() => {
+    if (rawLink) {
+      setLinks(rawLink)
+    }
+  }, [rawLink])
   return (
     <>
+      <p>{links}</p>
       <div className={'flex min-h-screen w-10/12 self-center gap-20'}>
         <div className={'flex flex-col justify-center items-center w-2/5 gap-10'}>
           <LCDJLogo className={'h-1/12'} />
