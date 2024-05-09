@@ -8,18 +8,18 @@ type RequestOptions = {
   deps?: unknown[]
 }
 
-type ApiResponse = {
-  data: any
+type ApiResponse<T> = {
+  data: T | null
   error: Error | null
   isLoading: boolean
   reload: () => void
 }
 
-export const useApi = (
+export const useApi = <T>(
   url: string,
   { queryParams, method, body, disable, deps = [] }: RequestOptions
-): ApiResponse => {
-  const [data, setData] = useState<string>('')
+): ApiResponse<T> => {
+  const [data, setData] = useState<T | null>(null)
   const [error, setError] = useState<any | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [key, setKey] = useState<number>(0)
@@ -58,7 +58,7 @@ export const useApi = (
       }
 
       const result = await response.text()
-      setData(result)
+      setData(JSON.parse(result) as T)
     } catch (error) {
       setError(error)
     } finally {

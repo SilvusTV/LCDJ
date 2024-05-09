@@ -19,33 +19,33 @@
   "socials": [
     {
       "title": "Instagram",
-      "link": "https://www.instagram.com/laconservedesjeunes"
+      "url": "https://www.instagram.com/laconservedesjeunes"
     },
     {
       "title": "Facebook",
-      "link": "https://www.facebook.com/profile.php?id=61557393121421"
+      "url": "https://www.facebook.com/profile.php?id=61557393121421"
     },
     {
       "title": "TikTok",
-      "link": "https://www.tiktok.com/@laconservedesjeunes"
+      "url": "https://www.tiktok.com/@laconservedesjeunes"
     },
     {
       "title": "LinkedIn",
-      "link": "https://www.linkedin.com/company/la-conserve-des-jeunes/"
+      "url": "https://www.linkedin.com/company/la-conserve-des-jeunes/"
     }
   ],
   "links": [
     {
-      "title": "donate",
-      "link": "https://tr.ee/2dBXXZutTF"
+      "title": "Réserve ton panier",
+      "url": "https://linktr.ee/laconservedesjeunes"
     },
     {
-      "title": "volunteer",
-      "link": "https://tr.ee/Sy4vuVFgd2"
+      "title": "Deviens bénévole",
+      "url": "https://tr.ee/Sy4vuVFgd2"
     },
     {
-      "title": "cart",
-      "link": "https://linktr.ee/laconservedesjeunes"
+      "title": "Fais un don",
+      "url": "https://tr.ee/2dBXXZutTF"
     }
   ],
   "contact": {

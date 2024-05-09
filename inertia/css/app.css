@@ -12,6 +12,7 @@
 html{
   background-color: var(--orange-light);
   font-family: Poppins, sans-serif;
+  overflow-x: hidden ;
 }
 
 

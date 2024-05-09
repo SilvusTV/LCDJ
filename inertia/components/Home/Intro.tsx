@@ -2,18 +2,19 @@ import LCDJLogo from '#components/LCDJLogo'
 import Wave from '~/components/SVG/Wave'
 import { useApi } from '~/utils/ApiRequest'
 import { useEffect, useState } from 'react'
+import { TLinks } from '../../../app/Types/TLinks'
 
 export default function Intro() {
-  const [links, setLinks] = useState<Array<string>>([])
-  const { data: rawLink } = useApi('getLinks', { method: 'GET' })
+  const [links, setLinks] = useState<any>([])
+  const { data: rawLink } = useApi<TLinks>('getLinks', { method: 'GET' })
   useEffect(() => {
     if (rawLink) {
       setLinks(rawLink)
     }
   }, [rawLink])
+
   return (
     <>
-      <p>{links}</p>
       <div className={'flex min-h-screen w-10/12 self-center gap-20'}>
         <div className={'flex flex-col justify-center items-center w-2/5 gap-10'}>
           <LCDJLogo className={'h-1/12'} />
@@ -34,33 +35,19 @@ export default function Intro() {
             className={'flex justify-evenly my-6 text-xl gap-2 text-center items-center mb-10'}
             id={'intro-button'}
           >
-            <a
-              className={
-                'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark cursor-pointer'
-              }
-              href={'https://linktr.ee/laconservedesjeunes'}
-              target={'_blank'}
-            >
-              Réserve ton panier
-            </a>
-            <a
-              className={
-                'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark hover:bg-orange-dark transition-background-color cursor-pointer'
-              }
-              href={'https://tr.ee/Sy4vuVFgd2'}
-              target={'_blank'}
-            >
-              Deviens bénévole
-            </a>
-            <a
-              className={
-                'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark hover:bg-orange-dark transition-background-color cursor-pointer'
-              }
-              href={'https://tr.ee/2dBXXZutTF'}
-              target={'_blank'}
-            >
-              Fais un don
-            </a>
+            {links.map((link: TLinks) => {
+              return (
+                <a
+                  className={
+                    'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark cursor-pointer'
+                  }
+                  href={link.url}
+                  target={'_blank'}
+                >
+                  {link.title}
+                </a>
+              )
+            })}
           </div>
         </div>
       </div>
