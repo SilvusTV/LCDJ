@@ -1,0 +1,57 @@
+{
+  "news": [
+    {
+      "title": "Nos actions du mois",
+      "imageName": "/",
+      "link": "/"
+    },
+    {
+      "title": "Envie d’en voir plus ? Retour sur le Festisol",
+      "imageName": "/",
+      "link": "https://www.instagram.com/reel/C0uXf3SrIlJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    },
+    {
+      "title": "Pour tout savoir sur l’inscription",
+      "imageName": "/",
+      "link": "https://www.instagram.com/p/C1opJs6rscW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    }
+  ],
+  "socials": [
+    {
+      "title": "Instagram",
+      "link": "https://www.instagram.com/laconservedesjeunes"
+    },
+    {
+      "title": "Facebook",
+      "link": "https://www.facebook.com/profile.php?id=61557393121421"
+    },
+    {
+      "title": "TikTok",
+      "link": "https://www.tiktok.com/@laconservedesjeunes"
+    },
+    {
+      "title": "LinkedIn",
+      "link": "https://www.linkedin.com/company/la-conserve-des-jeunes/"
+    }
+  ],
+  "links": [
+    {
+      "title": "donate",
+      "link": "https://tr.ee/2dBXXZutTF"
+    },
+    {
+      "title": "volunteer",
+      "link": "https://tr.ee/Sy4vuVFgd2"
+    },
+    {
+      "title": "cart",
+      "link": "https://linktr.ee/laconservedesjeunes"
+    }
+  ],
+  "contact": {
+    "address": "54 rue Jean-Baptiste Pigalle,",
+    "address2": "75009 Paris",
+    "phone": "07 77 82 05 36",
+    "email": "laconservedesjeunes@gmail.com"
+  }
+}
