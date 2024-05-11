@@ -17,18 +17,18 @@ export default function Intro() {
     <>
       <div className={'flex min-h-screen w-10/12 self-center gap-20'}>
         <div className={'flex flex-col justify-center items-center w-2/5 gap-10'}>
-          <LCDJLogo className={'h-1/12'} />
-          <p className={'text-4xl font-bold text-center my-6'}>La Converse des Jeunes</p>
+          <LCDJLogo className={'w-1/2'} />
+          <p className={'text-3xl font-bold text-center my-6'}>La Converse des Jeunes</p>
         </div>
-        <div className={'text-3xl flex flex-col gap-4 justify-center w-3/5'}>
+        <div className={'text-2xl flex flex-col gap-4 justify-center w-3/5'}>
           <p>
             La Conserve des Jeunes est une association reconnue d’intérêt général œuvrant sur Paris.
           </p>
           <p>
-            🎯<b>Nos objectifs ?</b> Lutter contre la précarité des jeunes et créer du lien social.
+            🎯 <b>Nos objectifs ?</b> Lutter contre la précarité des jeunes et créer du lien social.
           </p>
           <p>
-            📢<b>Nos actions ?</b> Des distributions de paniers solidaires gratuits à destination
+            📢 <b>Nos actions ?</b> Des distributions de paniers solidaires gratuits à destination
             des jeunes de 18 à 25 ans au cours d'ateliers conviviaux et créatifs.
           </p>
           <div
