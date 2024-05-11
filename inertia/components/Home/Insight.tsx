@@ -14,7 +14,7 @@ export default function Insight() {
   return (
     <div className={'min-h-screen relative bg-orange-dark flex flex-col items-center'}>
       <Wave2 className={'fill-blue-dark'} />
-      <h1 className={'text-7xl text-center font-extrabold m-20 '}>Nos Chiffres clés</h1>
+      <h1 className={'text-6xl text-center font-extrabold m-20 '}>Nos Chiffres clés</h1>
       <div className={'w-screen flex justify-center mt-40'}>
         <div className="grid grid-cols-5 grid-rows-2 gap-10 w-3/4 text-center ">
           <div className={'flex flex-col gap-10'}>
