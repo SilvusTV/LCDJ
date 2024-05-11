@@ -14,9 +14,11 @@ export default function Insight() {
   return (
     <div className={'min-h-screen relative bg-orange-dark flex flex-col items-center'}>
       <Wave2 className={'fill-blue-dark'} />
-      <h1 className={'text-7xl text-center font-extrabold m-20 '}>Nos Chiffres clés</h1>
-      <div className={'w-screen flex justify-center mt-40'}>
-        <div className="grid grid-cols-5 grid-rows-2 gap-10 w-3/4 text-center ">
+      <h1 className={'text-7xl text-center font-extrabold m-20 max-sm:text-5xl max-sm:m-8'}>
+        Nos Chiffres clés
+      </h1>
+      <div className={'w-screen flex justify-center mt-40 max-sm:my-10'}>
+        <div className="grid grid-cols-5 grid-rows-2 gap-10 w-3/4 text-center max-sm:w-full max-sm:p-8 max-sm:grid-rows-5 max-sm:grid-cols-1">
           <div className={'flex flex-col gap-10'}>
             <p className={'text-6xl font-bold text-stroke'}>
               {scrollMax > 63 ? <AnimatedNumber n={414} /> : 414}
