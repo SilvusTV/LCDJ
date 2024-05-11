@@ -15,12 +15,16 @@ export default function Intro() {
 
   return (
     <>
-      <div className={'flex min-h-screen w-10/12 self-center gap-20'}>
-        <div className={'flex flex-col justify-center items-center w-2/5 gap-10'}>
+      <div className={'flex min-h-screen w-10/12 self-center gap-10 max-sm:flex-col max-sm:w-full max-sm:p-8'}>
+        <div
+          className={
+            'flex flex-col justify-center items-center w-2/5 gap-10 max-sm:w-full max-sm:mt-5'
+          }
+        >
           <LCDJLogo className={'h-1/12'} />
-          <p className={'text-4xl font-bold text-center my-6'}>La Converse des Jeunes</p>
+          <p className={'text-4xl font-bold text-center mt-6'}>La Converse des Jeunes</p>
         </div>
-        <div className={'text-3xl flex flex-col gap-4 justify-center w-3/5'}>
+        <div className={'text-3xl flex flex-col gap-4 justify-center w-3/5 max-sm:w-full'}>
           <p>
             La Conserve des Jeunes est une association reconnue d’intérêt général œuvrant sur Paris.
           </p>
@@ -39,7 +43,7 @@ export default function Intro() {
               return (
                 <a
                   className={
-                    'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark cursor-pointer'
+                    'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark cursor-pointer max-sm:p-0'
                   }
                   href={link.url}
                   target={'_blank'}
@@ -51,7 +55,7 @@ export default function Intro() {
           </div>
         </div>
       </div>
-      <Wave className={'fill-orange-dark'} />
+      <Wave className={'fill-orange-dark max-sm:p-32'} />
     </>
   )
 }

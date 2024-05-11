@@ -11,8 +11,12 @@ export default function Footer() {
     }
   }, [rawLink])
   return (
-    <div className={'bg-orange-light flex my-6 gap-10 justify-evenly'}>
-      <div className={'flex flex-col justify-center items-center w-2/12 flex-wrap gap-5'}>
+    <div
+      className={
+        'bg-orange-light flex my-6 gap-10 justify-evenly max-sm:flex-col max-sm:text-center'
+      }
+    >
+      <div className={'flex flex-col justify-center items-center flex-wrap gap-5'}>
         <img
           src={'/inertia/images/LOGO.png'}
           alt={'Logo La Conserve Des Jeunes'}
@@ -20,7 +24,7 @@ export default function Footer() {
         />
         <h1 className={'text-xl font-bold text-center'}>La Conserve Des Jeunes</h1>
       </div>
-      <div className={'flex flex-col gap-0.5 w-2/12 flex-wrap'}>
+      <div className={'flex flex-col gap-0.5 w-2/12 flex-wrap max-sm:w-full'}>
         <h2 className={'font-bold mb-4'}>Liens utile</h2>
         {links.map((link: TLinks) => {
           return (
@@ -31,7 +35,7 @@ export default function Footer() {
         })}
         <a href="">Mentions légale</a>
       </div>
-      <div className={'flex flex-col gap-0.5 w-2/12 flex-wrap'}>
+      <div className={'flex flex-col gap-0.5 w-2/12 flex-wrap max-sm:w-full'}>
         <h2 className={'font-bold mb-4'}>Nos réseaux Sociaux</h2>
         <a
           href="https://www.instagram.com/laconservedesjeunes?igsh=eDAyNXdqam94OXEy"
@@ -49,7 +53,7 @@ export default function Footer() {
           TikTok
         </a>
       </div>
-      <div className={'flex flex-col gap-0.5 min-w-2/12 flex-wrap text-wrap'}>
+      <div className={'flex flex-col gap-0.5 min-w-2/12 flex-wrap text-wrap max-sm:w-full'}>
         <h2 className={'font-bold mb-4'}>Nous Contacter</h2>
         <a href="mailto:laconservedesjeunes@gmail.com">laconservedesjeunes@gmail.com</a>
         <a href="tel:0777820536">07-77-82-05-36</a>
