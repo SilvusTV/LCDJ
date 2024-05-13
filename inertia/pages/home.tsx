@@ -7,20 +7,34 @@ import Partners from '~/components/Home/Partners'
 import Footer from '~/components/Footer'
 import Header from '~/components/Header'
 import getScrollPercentage from '~/utils/getScrollPercentage'
+import { useEffect, useState } from 'react'
+import { useApi } from '~/utils/ApiRequest'
+import { TLinks } from '../../app/Types/TLinks'
 
 export default function Home() {
   const { scrollPercentage } = getScrollPercentage()
+  const [links, setLinks] = useState<any>([])
+  const { data: rawLink } = useApi<TLinks>('getLinks', { method: 'GET' })
+  useEffect(() => {
+    if (rawLink) {
+      setLinks(rawLink)
+    }
+  }, [rawLink])
   return (
     <>
       <Head title="La conserve des jeunes" />
       <div className={'flex flex-col justify-center'}>
-        {scrollPercentage > 15 ? <Header /> : <Header className={'translate-y--100'} />}
-        <Intro />
+        {scrollPercentage > 15 ? (
+          <Header links={links} />
+        ) : (
+          <Header className={'translate-y--100'} links={links} />
+        )}
+        <Intro links={links} />
         <News />
         <Actions />
         <Insight />
         <Partners />
-        <Footer />
+        <Footer links={links} />
       </div>
     </>
   )

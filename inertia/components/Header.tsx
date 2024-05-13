@@ -1,6 +1,7 @@
 import clsx from 'clsx'
+import { TLinks } from '../../app/Types/TLinks'
 
-export default function Header(props: { className?: string }) {
+export default function Header(props: { className?: string; links: TLinks[] }) {
   return (
     <div
       className={clsx(
@@ -9,7 +10,7 @@ export default function Header(props: { className?: string }) {
       )}
     >
       <img src="/inertia/images/LOGO.png" alt="La conserverie des jeunes" width={'100px'} />
-      <p className={'font-bold text-2xl'}>La Conserverie des Jeunes</p>
+      <p className={'font-bold text-2xl'}>La Conserve des Jeunes</p>
     </div>
   )
 }
