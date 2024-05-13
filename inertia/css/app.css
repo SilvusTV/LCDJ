@@ -122,3 +122,13 @@ html{
     }
   }
 }
+
+/* Responsive smartphone */
+@media not all and (min-width: 640px) {
+  .custom-shape-divider-bottom-1714036479{
+    margin-top: -70px;
+  }
+  .partner-img{
+    height: 10vw;
+  }
+}
