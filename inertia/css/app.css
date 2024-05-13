@@ -114,12 +114,10 @@ html{
   transform: rotateY(180deg);
 }
 /* functional classes */
-#intro-button{
-  & a{
-    transition: background-color 0.2s;
-    &:hover{
-      background-color: var(--orange-dark);
-    }
+a.primary-btn{
+  transition: background-color 0.2s;
+  &:hover{
+    background-color: var(--orange-dark);
   }
 }
 
