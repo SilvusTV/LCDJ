@@ -1,15 +1,6 @@
-import { useEffect, useState } from 'react'
-import { useApi } from '~/utils/ApiRequest'
 import { TLinks } from '../../app/Types/TLinks'
 
-export default function Footer() {
-  const [links, setLinks] = useState<any>([])
-  const { data: rawLink } = useApi<TLinks>('getLinks', { method: 'GET' })
-  useEffect(() => {
-    if (rawLink) {
-      setLinks(rawLink)
-    }
-  }, [rawLink])
+export default function Footer(props: { links: TLinks[] }) {
   return (
     <div className={'bg-orange-light flex my-6 gap-10 justify-evenly'}>
       <div className={'flex flex-col justify-center items-center w-2/12 flex-wrap gap-5'}>
@@ -22,7 +13,7 @@ export default function Footer() {
       </div>
       <div className={'flex flex-col gap-0.5 w-2/12 flex-wrap'}>
         <h2 className={'font-bold mb-4'}>Liens utile</h2>
-        {links.map((link: TLinks) => {
+        {props.links.map((link: TLinks) => {
           return (
             <a href={link.url} target={'_blank'}>
               {link.title}

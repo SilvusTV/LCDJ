@@ -1,18 +1,8 @@
 import LCDJLogo from '#components/LCDJLogo'
 import Wave from '~/components/SVG/Wave'
-import { useApi } from '~/utils/ApiRequest'
-import { useEffect, useState } from 'react'
 import { TLinks } from '../../../app/Types/TLinks'
 
-export default function Intro() {
-  const [links, setLinks] = useState<any>([])
-  const { data: rawLink } = useApi<TLinks>('getLinks', { method: 'GET' })
-  useEffect(() => {
-    if (rawLink) {
-      setLinks(rawLink)
-    }
-  }, [rawLink])
-
+export default function Intro(props: { links: TLinks[] }) {
   return (
     <>
       <div className={'flex min-h-screen w-10/12 self-center gap-20'}>
@@ -35,7 +25,7 @@ export default function Intro() {
             className={'flex justify-evenly my-6 text-xl gap-2 text-center items-center mb-10'}
             id={'intro-button'}
           >
-            {links.map((link: TLinks) => {
+            {props.links.map((link: TLinks) => {
               return (
                 <a
                   className={
