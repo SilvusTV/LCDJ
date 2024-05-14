@@ -11,20 +11,28 @@ export default function Partners() {
       </h1>
       <div
         className={
-          'w-3/5 flex flex-row items-center gap-10 justify-center flex-wrap mt-40 max-sm:w-full max-sm:p-8 max-sm:my-20'
+          'w-3/5 flex flex-row items-center gap-10 justify-center flex-wrap mt-32 max-sm:w-full max-sm:p-8 max-sm:my-20'
         }
       >
-        <img src="/inertia/images/CVEC.png" alt="CVEC" className={'partner-img'} />
-        <img src="/inertia/images/Crous.png" alt="Crous" className={'partner-img'} />
-        <img src="/inertia/images/ParisLaMie.png" alt="Paris la Mie" className={'partner-img'} />
-        <img src="/inertia/images/ParisAnim.png" alt="Paris Anim\'" className={'partner-img'} />
-        <img src="/inertia/images/Deloitte.png" alt="Deloitte" className={'partner-img'} />
+        <img src="/inertia/images/Partners/CVEC.png" alt="CVEC" className={'partner-img'} />
+        <img src="/inertia/images/Partners/Crous.png" alt="Crous" className={'partner-img'} />
         <img
-          src="/inertia/images/ParisNeuf.png"
+          src="/inertia/images/Partners/ParisLaMie.png"
+          alt="Paris la Mie"
+          className={'partner-img'}
+        />
+        <img
+          src="/inertia/images/Partners/ParisAnim.png"
+          alt="Paris Anim\'"
+          className={'partner-img'}
+        />
+        <img src="/inertia/images/Partners/Deloitte.png" alt="Deloitte" className={'partner-img'} />
+        <img
+          src="/inertia/images/Partners/ParisNeuf.png"
           alt="Mairie de Paris Neuf"
           className={'partner-img'}
         />
-        <img src="/inertia/images/Afev.png" alt="Afev" className={'partner-img'} />
+        <img src="/inertia/images/Partners/Afev.png" alt="Afev" className={'partner-img'} />
       </div>
     </div>
   )
