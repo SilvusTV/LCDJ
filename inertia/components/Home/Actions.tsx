@@ -38,14 +38,14 @@ export default function Actions() {
           </p>
         </div>
         <div className={'col-start-1 row-start-2 flex items-center justify-center'}>
-          <img src={'/inertia/images/Map2.png'} alt={'Carte 1'} className={'h-60'} />
+          <img src={'/inertia/images/Actions/Map2.png'} alt={'Carte 1'} className={'h-60'} />
         </div>
         <div
           className={
             'col-start-2 row-start-1 max-sm:col-start-1 max-sm:row-start-4 flex justify-center items-center'
           }
         >
-          <img src={'/inertia/images/Map1.png'} alt={'Carte 1'} className={'h-60'} />
+          <img src={'/inertia/images/Actions/Map1.png'} alt={'Carte 1'} className={'h-60'} />
         </div>
         <div
           className={
