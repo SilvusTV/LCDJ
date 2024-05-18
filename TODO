@@ -1,6 +1,5 @@
 TODO: Continuer la vue mobile (voir l'update des maps dans Actions.)
-TODO: Ajouter la vue Nos Actues
-TODO: Optimiser la vue Nos Partenaires
+TODO: Optimiser le chargement des images (voir le chargement des images dans Actions / Partenaires.)
 TODO: Continuer l'implémentation de bd.json
 TODO: Faires les mention legales
 TODO: Ajout de i18n pour un stockage facile des textes

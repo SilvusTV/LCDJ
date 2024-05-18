@@ -18,7 +18,7 @@ export default function Header(props: { className?: string; links: TLinks[] }) {
           return (
             <a
               className={
-                'bg-orange-light border-2 px-4 py-2 rounded-full border-orange-dark cursor-pointer max-sm:p-0 primary-btn'
+                'bg-orange-light border-2 px-4 py-2 rounded-full border-orange-dark cursor-pointer max-sm:p-0 primary-btn text-center'
               }
               href={link.url}
               target={'_blank'}
