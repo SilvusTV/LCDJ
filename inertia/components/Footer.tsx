@@ -4,7 +4,7 @@ export default function Footer(props: { links: TLinks[] }) {
   return (
     <div
       className={
-        'bg-orange-light flex my-6 gap-10 justify-evenly max-sm:flex-col max-sm:text-center'
+        'bg-orange-light flex my-6 gap-10 justify-evenly max-sm:flex-col max-sm:text-center self-center'
       }
     >
       <div className={'flex flex-col justify-center items-center flex-wrap gap-5'}>
