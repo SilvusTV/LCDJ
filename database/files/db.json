@@ -2,18 +2,18 @@
   "news": [
     {
       "title": "Nos actions du mois",
-      "imageName": "/",
+      "imageName": "/1.jpg",
       "link": "/"
     },
     {
       "title": "Envie d’en voir plus ? Retour sur le Festisol",
-      "imageName": "/",
-      "link": "https://www.instagram.com/reel/C0uXf3SrIlJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+      "imageName": "/2.jpg",
+      "link": "https://www.instagram.com/reel/C0uXf3SrIlJ/"
     },
     {
       "title": "Pour tout savoir sur l’inscription",
-      "imageName": "/",
-      "link": "https://www.instagram.com/p/C1opJs6rscW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+      "imageName": "/3.jpg",
+      "link": "https://www.instagram.com/p/C1opJs6rscW/"
     }
   ],
   "socials": [

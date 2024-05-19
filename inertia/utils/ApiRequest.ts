@@ -23,6 +23,7 @@ export const useApi = <T>(
   const [error, setError] = useState<any | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [key, setKey] = useState<number>(0)
+  const API_URL = import.meta.env.VITE_API_URL
 
   const abortController = new AbortController()
 
@@ -44,8 +45,10 @@ export const useApi = <T>(
           .join('&')
       : ''
 
+    const callUrl = `${API_URL}/${url}${queryString}`
+
     try {
-      const response = await fetch(`http://localhost:3333/api/${url}${queryString}`, {
+      const response = await fetch(`${callUrl}`, {
         method,
         mode: 'cors',
         credentials: 'include',
@@ -76,5 +79,6 @@ export const useApi = <T>(
     setIsLoading(true)
     setKey((prevKey) => prevKey + 1)
   }
+
   return { data, error, isLoading, reload }
 }
