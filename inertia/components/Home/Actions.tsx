@@ -19,7 +19,7 @@ export default function Actions() {
       <div
         className={
           'grid grid-cols-2 grid-rows-2 gap-4 w-10/12 mt-10 mb-40 ' +
-          'max-sm:w-full max-sm:p-8 max-sm:mb-8 max-sm:grid-cols-1 max-sm:grid-rows-4'
+          'max-sm:w-full max-sm:p-8 max-sm:mb-8 max-sm:grid-cols-1 max-sm:flex-col max-sm:gap-8'
         }
       >
         <div
