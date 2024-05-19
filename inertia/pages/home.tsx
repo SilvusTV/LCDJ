@@ -14,12 +14,14 @@ import { TLinks } from '../../app/Types/TLinks'
 export default function Home() {
   const { scrollPercentage } = getScrollPercentage()
   const [links, setLinks] = useState<any>([])
+
   const { data: rawLink } = useApi<TLinks>('getLinks', { method: 'GET' })
   useEffect(() => {
     if (rawLink) {
       setLinks(rawLink)
     }
   }, [rawLink])
+
   return (
     <>
       <Head title="La conserve des jeunes" />

@@ -5,7 +5,11 @@ import { TLinks } from '../../../app/Types/TLinks'
 export default function Intro(props: { links: TLinks[] }) {
   return (
     <>
-      <div className={'flex min-h-screen w-10/12 self-center gap-10 max-sm:flex-col max-sm:w-full max-sm:p-8'}>
+      <div
+        className={
+          'flex min-h-screen w-10/12 self-center gap-10 max-sm:flex-col max-sm:w-full max-sm:p-8'
+        }
+      >
         <div
           className={
             'flex flex-col justify-center items-center w-2/5 gap-10 max-sm:w-full max-sm:mt-5'
@@ -33,7 +37,7 @@ export default function Intro(props: { links: TLinks[] }) {
               return (
                 <a
                   className={
-                    'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark cursor-pointer max-sm:p-0'
+                    'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark cursor-pointer max-sm:p-0 primary-btn'
                   }
                   href={link.url}
                   target={'_blank'}
