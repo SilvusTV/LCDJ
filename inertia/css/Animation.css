@@ -17,3 +17,6 @@
     transform: scaleX(1);
   }
 }
+.hover-animation{
+  transition: all 0.3s ease-in-out 0s;
+}
