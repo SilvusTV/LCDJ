@@ -6,7 +6,7 @@ export default function Actions() {
       <Wave2 className={'fill-orange-dark'} />
       <h1
         className={
-          'text-7xl text-center font-extrabold m-20 text-white max-sm:text-5xl max-sm:mx-8'
+          'text-6xl text-center font-extrabold m-20 text-white max-sm:text-5xl max-sm:mx-8'
         }
       >
         Nos Actions
@@ -14,7 +14,7 @@ export default function Actions() {
       <p className={'text-2xl text-justify w-3/5 text-white max-sm:w-full max-sm:p-8'}>
         Une volonté simple dicte nos actions : permettre aux jeunes de subvenir à leurs besoins
         alimentaires et hygiéniques de base gratuitement. C'est comme ça qu'est né le projet
-        "renfloue ton placard".
+        «renfloue ton placard ».
       </p>
       <div
         className={
@@ -38,14 +38,14 @@ export default function Actions() {
           </p>
         </div>
         <div className={'col-start-1 row-start-2 flex items-center justify-center'}>
-          <img src={'/inertia/images/Actions/Map2.png'} alt={'Carte 1'} className={'h-60'} />
+          <img src={'/inertia/images/Actions/Map2.png'} alt={'Carte 2'} className={'h-72'} />
         </div>
         <div
           className={
             'col-start-2 row-start-1 max-sm:col-start-1 max-sm:row-start-4 flex justify-center items-center'
           }
         >
-          <img src={'/inertia/images/Actions/Map1.png'} alt={'Carte 1'} className={'h-60'} />
+          <img src={'/inertia/images/Actions/Map1.png'} alt={'Carte 1'} className={'h-72'} />
         </div>
         <div
           className={

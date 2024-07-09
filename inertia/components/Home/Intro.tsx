@@ -18,9 +18,9 @@ export default function Intro(props: { links: TLinks[] }) {
           <LCDJLogo className={'h-1/12'} />
           <p className={'text-4xl font-bold text-center mt-6'}>La Converse des Jeunes</p>
         </div>
-        <div className={'text-3xl flex flex-col gap-4 justify-center w-3/5 max-sm:w-full'}>
+        <div className={'text-2xl flex flex-col gap-4 justify-center w-3/5 max-sm:w-full'}>
           <p>
-            La Conserve des Jeunes est une association reconnue d’intérêt général œuvrant sur Paris.
+            La Conserve des Jeunes est une association reconnue d’intérêt général œuvrant à Paris.
           </p>
           <p>
             🎯 <b>Nos objectifs ?</b> Lutter contre la précarité des jeunes et créer du lien social.
@@ -37,7 +37,7 @@ export default function Intro(props: { links: TLinks[] }) {
               return (
                 <a
                   className={
-                    'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark cursor-pointer max-sm:p-0 primary-btn'
+                    'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark cursor-pointer max-sm:p-0 primary-btn text-lg'
                   }
                   href={link.url}
                   target={'_blank'}
