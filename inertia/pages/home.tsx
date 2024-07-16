@@ -10,6 +10,8 @@ import getScrollPercentage from '~/utils/getScrollPercentage'
 import { useEffect, useState } from 'react'
 import { useApi } from '~/utils/ApiRequest'
 import { TLinks } from '../../app/Types/TLinks'
+import { isSmartphone } from '~/utils/getDevice'
+import PhoneHeader from '~/components/PhoneHeader'
 
 export default function Home() {
   const { scrollPercentage } = getScrollPercentage()
@@ -26,7 +28,9 @@ export default function Home() {
     <>
       <Head title="La conserve des jeunes" />
       <div className={'flex flex-col justify-center'}>
-        {scrollPercentage > 15 ? (
+        {isSmartphone() ? (
+          <PhoneHeader links={links} />
+        ) : scrollPercentage > 15 ? (
           <Header links={links} />
         ) : (
           <Header className={'translate-y--100'} links={links} />
