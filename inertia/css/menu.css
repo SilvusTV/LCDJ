@@ -1,5 +1,5 @@
 .burger-button {
-  position: absolute;
+  position: fixed;
   background-color: var(--orange-light);
   border: solid 2px var(--orange-dark);
   border-radius: 0.375rem;

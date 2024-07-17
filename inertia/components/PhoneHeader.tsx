@@ -6,12 +6,12 @@ export default function PhoneHeader(props: { className?: string; links: TLinks[]
   const [open, setOpen] = useState(false)
 
   return (
-    <div className={props.className}>
+    <>
       <button onClick={() => setOpen(!open)} className={'burger-button'}>
         <span className={clsx(open ? 'burger-to-close' : 'burger-to-open')} />
       </button>
       {open && (
-        <div className={'absolute w-screen h-screen bg-dark top-0 right-0 z-10 flex justify-end'}>
+        <div className={'fixed w-screen h-screen bg-dark top-0 right-0 z-10 flex justify-end'}>
           <div
             className={
               'relative w-3/4 h-screen bg-orange-light flex flex-col py-5 transition-all duration-300 ease-in-out'
@@ -39,6 +39,6 @@ export default function PhoneHeader(props: { className?: string; links: TLinks[]
           </div>
         </div>
       )}
-    </div>
+    </>
   )
 }

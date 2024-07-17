@@ -12,6 +12,7 @@ import { useApi } from '~/utils/ApiRequest'
 import { TLinks } from '../../app/Types/TLinks'
 import { isSmartphone } from '~/utils/getDevice'
 import PhoneHeader from '~/components/PhoneHeader'
+import LOGO from '/inertia/images/LOGO.png'
 
 export default function Home() {
   const { scrollPercentage } = getScrollPercentage()
@@ -26,10 +27,13 @@ export default function Home() {
 
   return (
     <>
-      <Head title="La conserve des jeunes" />
+      <Head>
+        <title>La conserve des jeunes</title>
+        <link rel="icon" href={LOGO} />
+      </Head>
       <div className={'flex flex-col justify-center'}>
         {isSmartphone() ? (
-          <PhoneHeader links={links} className={'fixed h-screen w-screen top-0 right-0 z-30'} />
+          <PhoneHeader links={links} />
         ) : scrollPercentage > 15 ? (
           <Header links={links} />
         ) : (
