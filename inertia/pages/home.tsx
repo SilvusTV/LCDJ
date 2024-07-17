@@ -29,7 +29,7 @@ export default function Home() {
       <Head title="La conserve des jeunes" />
       <div className={'flex flex-col justify-center'}>
         {isSmartphone() ? (
-          <PhoneHeader links={links} />
+          <PhoneHeader links={links} className={'fixed h-screen w-screen top-0 right-0 z-30'} />
         ) : scrollPercentage > 15 ? (
           <Header links={links} />
         ) : (

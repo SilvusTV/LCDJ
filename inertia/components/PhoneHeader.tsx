@@ -6,7 +6,7 @@ export default function PhoneHeader(props: { className?: string; links: TLinks[]
   const [open, setOpen] = useState(false)
 
   return (
-    <>
+    <div className={props.className}>
       <button onClick={() => setOpen(!open)} className={'burger-button'}>
         <span className={clsx(open ? 'burger-to-close' : 'burger-to-open')} />
       </button>
@@ -39,6 +39,6 @@ export default function PhoneHeader(props: { className?: string; links: TLinks[]
           </div>
         </div>
       )}
-    </>
+    </div>
   )
 }
