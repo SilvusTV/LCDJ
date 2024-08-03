@@ -1,5 +1,6 @@
-TODO: Faires les mention legales
-TODO: Optimiser le chargement des images (voir le chargement des images dans Actions / Partenaires.)
-TODO: Continuer l'implémentation de bd.json
-TODO: Ajout de i18n pour un stockage facile des textes
-TODO: Ajout d'une vue administration + DB du site web
+TODO: [Global] Faires les mention legales
+TODO: [Mobil] Cliquer ailleur que sur le menu pour le fermer
+TODO: [Global] Optimiser le chargement des images (voir le chargement des images dans Actions / Partenaires.)
+TODO: [Global] Continuer l'implémentation de bd.json => transformer en SQLite
+TODO: [Global] Ajout de i18n pour un stockage facile des textes
+TODO: [Global] Ajout d'une vue administration
