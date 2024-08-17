@@ -6,4 +6,3 @@ TODO: [Global] Ajout d'une vue administration
 
 TODO: [Responsive] Chiffres clés
 TODO: [Global] Il y a une faute de frappe sur la carte de Paris, pour le Point Information Jeunesse, c’est La Fayette
-TODO: [Global] Les chiffres clés : mettre les chiffres en couleur et remplis (pas beau...)
