@@ -12,8 +12,9 @@ export default function PhoneHeader(props: { className?: string; links: TLinks[]
       </button>
       {open && (
         <div
+          id={'backdrop'}
           className={'fixed w-screen h-screen bg-dark top-0 right-0 z-10 flex justify-end'}
-          onClick={() => setOpen(false)}
+          onClick={(event) => (event.target as HTMLElement).id === 'backdrop' && setOpen(false)}
         >
           <div
             className={

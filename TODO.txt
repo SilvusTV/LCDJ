@@ -1,5 +1,4 @@
 TODO: [Global] Faires les mention legales
-TODO: [Mobil] Cliquer ailleur que sur le menu pour le fermer
 TODO: [Global] Optimiser le chargement des images (voir le chargement des images dans Actions / Partenaires.)
 TODO: [Global] Continuer l'implémentation de bd.json => transformer en SQLite
 TODO: [Global] Ajout de i18n pour un stockage facile des textes
