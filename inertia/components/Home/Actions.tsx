@@ -13,8 +13,8 @@ export default function Actions() {
       </h1>
       <p className={'text-2xl text-justify w-3/5 text-white max-sm:w-full max-sm:p-8'}>
         Une volonté simple dicte nos actions : permettre aux jeunes de subvenir à leurs besoins
-        alimentaires et hygiéniques de base gratuitement. C'est comme ça qu'est né le projet
-        «renfloue ton placard ».
+        alimentaires et hygiéniques de base gratuitement. C'est comme ça qu'est né le projet «
+        renfloue ton placard ».
       </p>
       <div
         className={
