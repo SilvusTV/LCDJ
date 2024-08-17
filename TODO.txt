@@ -6,7 +6,6 @@ TODO: [Global] Ajout d'une vue administration
 TODO: [Responsive] Chiffres clés
 TODO: [Responsive] bouttons de la page d'accueil (ecran moyen)
 TODO: [Global] Il y a une faute de frappe sur la carte de Paris, pour le Point Information Jeunesse, c’est La Fayette
--La première étape consiste à collecter une fois par mois les denrées alimentaires et produits d’hygiène auprès des clients des supermarchés partenaires, et à l'aide de nos bénévoles
 -Les paniers sont ensuite distribués au cours de distributions  aux jeunes de 18 à 25 ans préalablement inscrits.
 TODO: [Global] Les chiffres clés : mettre les chiffres en couleur et remplis
 TODO: [Global] Le texte de début sur les engagements devrait mieux être mis en valeur (lisible plus facilement)

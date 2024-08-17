@@ -30,11 +30,10 @@ export default function Actions() {
             alt={'1'}
             className={'absolute h-32 top-2 left-0 transform-translate max-sm:hidden'}
           />
-          <p className={`text-xl text-center bg-orange-light p-10 rounded-xlg`}>
+          <p className={`text-xl text-justify bg-orange-light p-10 rounded-xlg`}>
             La première étape consiste à collecter une fois par mois les denrées alimentaires et
-            produits d’hygiène en supermarché auprès des clients des supermarchés et à l'aide de nos
-            bénévoles. Ces dons constituent ensuite les paniers distribués, composés d'une dizaine
-            de produits alimentaires et d'hygiène.
+            produits d’hygiène auprès des clients des supermarchés partenaires, et à l'aide de nos
+            bénévoles
           </p>
         </div>
         <div className={'col-start-1 row-start-2 flex items-center justify-center'}>
@@ -57,7 +56,7 @@ export default function Actions() {
             alt={'2'}
             className={'absolute h-32 top-0 right-0 transform-translate max-sm:hidden'}
           />
-          <p className={'text-xl text-center bg-orange-light p-10 rounded-xlg'}>
+          <p className={'text-xl text-justify bg-orange-light p-10 rounded-xlg'}>
             Les paniers sont ensuite distribués aux jeunes de 18 à 25 ans préalablement inscrits au
             cours de distributions. Nous en organisons deux par mois, dans le 9e et 18e
             arrondissement de Paris.
