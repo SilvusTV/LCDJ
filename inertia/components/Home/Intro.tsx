@@ -37,7 +37,7 @@ export default function Intro(props: { links: TLinks[] }) {
               return (
                 <a
                   className={
-                    'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark cursor-pointer max-sm:p-0 primary-btn text-lg'
+                    'bg-orange-light border-2 px-8 py-4 rounded-full border-orange-dark cursor-pointer max-sm:py-1 max-sm:px-2 primary-btn text-lg'
                   }
                   href={link.url}
                   target={'_blank'}

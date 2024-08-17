@@ -3,9 +3,10 @@ TODO: [Global] Optimiser le chargement des images (voir le chargement des images
 TODO: [Global] Continuer l'implémentation de bd.json => transformer en SQLite
 TODO: [Global] Ajout de i18n pour un stockage facile des textes
 TODO: [Global] Ajout d'une vue administration
+
+
 TODO: [Responsive] Chiffres clés
-TODO: [Responsive] bouttons de la page d'accueil (ecran moyen)
 TODO: [Global] Il y a une faute de frappe sur la carte de Paris, pour le Point Information Jeunesse, c’est La Fayette
-TODO: [Global] Les chiffres clés : mettre les chiffres en couleur et remplis
+TODO: [Global] Les chiffres clés : mettre les chiffres en couleur et remplis (pas beau...)
 TODO: [Global] Le texte de début sur les engagements devrait mieux être mis en valeur (lisible plus facilement)
 
