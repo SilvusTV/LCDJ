@@ -57,8 +57,8 @@ export default function Actions() {
             className={'absolute h-32 top-0 right-0 transform-translate max-sm:hidden'}
           />
           <p className={'text-xl text-justify bg-orange-light p-10 rounded-xlg'}>
-            Les paniers sont ensuite distribués aux jeunes de 18 à 25 ans préalablement inscrits au
-            cours de distributions. Nous en organisons deux par mois, dans le 9e et 18e
+            Les paniers sont ensuite distribués au cours de distributions aux jeunes de 18 à 25 ans
+            préalablement inscrits. Nous en organisons deux par mois, dans le 9e et 18e
             arrondissement de Paris.
             <br /> <br />
             Notre objectif est de lutter contre la précarité des jeunes, mais également de créer du
