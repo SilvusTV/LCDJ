@@ -1,5 +1,5 @@
 TODO: [Global] Réduire le bandeau supérieur
-TODO: [Global] Rentre les titres des actus plus visibles => imaginer un moyen de mettres les images en plus grand
+TODO: [Global]  imaginer un moyen de mettres les images en plus grand
 TODO: [Global] Optimiser le chargement des images (voir le chargement des images dans Actions / Partenaires.) (v1 => webp)
 TODO: [Responsive] Chiffres clés (voir la vue intermedière tablette)
 
