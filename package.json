@@ -73,16 +73,12 @@
     "@vinejs/vine": "2.0.0",
     "clsx": "2.1.1",
     "edge.js": "6.0.2",
-    "fs": "^0.0.1-security",
     "luxon": "3.4.4",
     "mysql2": "3.9.7",
-    "path": "^0.12.7",
-    "prompt-sync": "^4.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-spring": "9.7.3",
-    "reflect-metadata": "0.2.2",
-    "sharp": "^0.33.5"
+    "reflect-metadata": "0.2.2"
   },
   "hotHook": {
     "boundaries": [
