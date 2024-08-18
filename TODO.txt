@@ -1,11 +1,10 @@
-TODO: [Responsive] Chiffres clés (voir la vue intermedière tablette)
-
 TODO: [Global] Faires les mentions legales
 TODO: [Global] Modifier les class custom dans tailwind.config.js => plus propre
 TODO: [Global] Continuer l'implémentation de bd.json => transformer en SQLite
 TODO: [Global] Ajout de i18n pour un stockage facile des textes
 TODO: [Global] Ajout d'une vue administration
 TODO: [Global] Ajouter un bouton "Voir plus" pour les actus
+TODO: [Responsive] Mondifier le responsive de tailwind avec celui dans le utils avec clsx
 
 TODO: [Map] Il y a une faute de frappe sur la carte de Paris, pour le Point Information Jeunesse, c’est La Fayette
 TODO: [Map] Les maps sont un peu cassées et se fondent dans le fond, on a aussi du mal à les distinguer l'une de l'autre.
