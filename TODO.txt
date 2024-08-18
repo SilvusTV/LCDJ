@@ -1,8 +1,15 @@
-TODO: [Global] Faires les mention legales
-TODO: [Global] Optimiser le chargement des images (voir le chargement des images dans Actions / Partenaires.)
+TODO: [Global] Réduire le bandeau supérieur
+TODO: [Global] Rentre les titres des actus plus visibles => imaginer un moyen de mettres les images en plus grand
+TODO: [Global] Optimiser le chargement des images (voir le chargement des images dans Actions / Partenaires.) (v1 => webp)
+TODO: [Responsive] Chiffres clés (voir la vue intermedière tablette)
+
+TODO: [Global] Faires les mentions legales
 TODO: [Global] Continuer l'implémentation de bd.json => transformer en SQLite
 TODO: [Global] Ajout de i18n pour un stockage facile des textes
 TODO: [Global] Ajout d'une vue administration
+TODO: [Global] Ajouter un bouton "Voir plus" pour les actus
 
-TODO: [Responsive] Chiffres clés
-TODO: [Global] Il y a une faute de frappe sur la carte de Paris, pour le Point Information Jeunesse, c’est La Fayette
+TODO: [Map] Il y a une faute de frappe sur la carte de Paris, pour le Point Information Jeunesse, c’est La Fayette
+TODO: [Map] Les maps sont un peu cassées et se fondent dans le fond, on a aussi du mal à les distinguer l'une de l'autre.
+TODO: [Map] Sur la carte des supermarchés : c’est Auchan Paris Gouvion St-Cyr (et non Gauvion)
+
