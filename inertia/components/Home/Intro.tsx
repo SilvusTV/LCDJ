@@ -27,7 +27,8 @@ export default function Intro(props: { links: TLinks[] }) {
           </p>
           <p>
             📢 <b>Nos actions ?</b> Des distributions de paniers solidaires gratuits à destination
-            des jeunes de 18 à 25 ans au cours d'ateliers conviviaux et créatifs.
+            des jeunes de 18 à 25 ans au cours d'ateliers conviviaux et créatifs à partir de
+            produits collectés en supermarchés.
           </p>
           <div
             className={'flex justify-evenly my-6 text-xl gap-2 text-center items-center mb-10'}
