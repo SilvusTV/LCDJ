@@ -5,7 +5,7 @@ export default function News() {
       <div className={'grid grid-cols-2 grid-rows-3 gap-10 h-3/4 w-4/5'}>
         <a
           className={
-            'row-span-2 bg-[url(/inertia/images/news/1.jpg)] bg-center bg-cover bg-no-repeat max-sm:col-span-2 max-sm:row-span-2 flex items-end hover:tracking-widest hover-animation'
+            'row-span-2 bg-[url(/inertia/images/news-1.webp)] bg-center bg-cover bg-no-repeat max-sm:col-span-2 max-sm:row-span-2 flex items-end hover:tracking-widest hover-animation'
           }
           href={'#'}
         >
@@ -13,7 +13,7 @@ export default function News() {
         </a>
         <a
           className={
-            'bg-[url(/inertia/images/news/2.jpg)] bg-center bg-cover bg-no-repeat max-sm:row-start-3 flex items-end hover:tracking-widest hover-animation'
+            'bg-[url(/inertia/images/news-2.webp)] bg-center bg-cover bg-no-repeat max-sm:row-start-3 flex items-end hover:tracking-widest hover-animation'
           }
           href={'https://www.instagram.com/reel/C0uXf3SrIlJ/'}
           target={'_blank'}
@@ -24,7 +24,7 @@ export default function News() {
         </a>
         <a
           className={
-            'bg-[url(/inertia/images/news/3.jpg)] bg-center bg-cover bg-no-repeat col-start-2 max-sm:row-start-3 flex items-end hover:tracking-widest hover-animation'
+            'bg-[url(/inertia/images/news-3.webp)] bg-center bg-cover bg-no-repeat col-start-2 max-sm:row-start-3 flex items-end hover:tracking-widest hover-animation'
           }
           href={'https://www.instagram.com/p/C1opJs6rscW/'}
           target={'_blank'}

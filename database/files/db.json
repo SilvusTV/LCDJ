@@ -2,17 +2,17 @@
   "news": [
     {
       "title": "Nos actions du mois",
-      "imageName": "/1.jpg",
+      "imageName": "/news-1.webp",
       "link": "/"
     },
     {
       "title": "Envie d’en voir plus ? Retour sur le Festisol",
-      "imageName": "/2.jpg",
+      "imageName": "/news-2.webp",
       "link": "https://www.instagram.com/reel/C0uXf3SrIlJ/"
     },
     {
       "title": "Pour tout savoir sur l’inscription",
-      "imageName": "/3.jpg",
+      "imageName": "/news-3.webp",
       "link": "https://www.instagram.com/p/C1opJs6rscW/"
     }
   ],

@@ -26,7 +26,7 @@ export default function Actions() {
           className={'relative flex content-center justify-center items-center max-sm:row-start-1'}
         >
           <img
-            src={'/inertia/images/Actions/1.png'}
+            src={'/inertia/images/number-1.webp'}
             alt={'1'}
             className={'absolute h-32 top-2 left-0 transform-translate max-sm:hidden'}
           />
@@ -37,14 +37,14 @@ export default function Actions() {
           </p>
         </div>
         <div className={'col-start-1 row-start-2 flex items-center justify-center'}>
-          <img src={'/inertia/images/Actions/Map2.png'} alt={'Carte 2'} className={'h-72'} />
+          <img src={'/inertia/images/Map2.webp'} alt={'Carte 2'} className={'h-72'} />
         </div>
         <div
           className={
             'col-start-2 row-start-1 max-sm:col-start-1 max-sm:row-start-4 flex justify-center items-center'
           }
         >
-          <img src={'/inertia/images/Actions/Map1.png'} alt={'Carte 1'} className={'h-72'} />
+          <img src={'/inertia/images/Map1.webp'} alt={'Carte 1'} className={'h-72'} />
         </div>
         <div
           className={
@@ -52,7 +52,7 @@ export default function Actions() {
           }
         >
           <img
-            src={'/inertia/images/Actions/2.png'}
+            src={'/inertia/images/number-2.webp'}
             alt={'2'}
             className={'absolute h-32 top-0 right-0 transform-translate max-sm:hidden'}
           />
