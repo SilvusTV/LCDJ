@@ -1,8 +1,7 @@
-TODO: [Global] Réduire le bandeau supérieur
-TODO: [Global] Rentre les titres des actus plus visibles => imaginer un moyen de mettres les images en plus grand
 TODO: [Responsive] Chiffres clés (voir la vue intermedière tablette)
 
 TODO: [Global] Faires les mentions legales
+TODO: [Global] Modifier les class custom dans tailwind.config.js => plus propre
 TODO: [Global] Continuer l'implémentation de bd.json => transformer en SQLite
 TODO: [Global] Ajout de i18n pour un stockage facile des textes
 TODO: [Global] Ajout d'une vue administration

@@ -2,15 +2,20 @@
 export default {
   content: ['./index.html', './inertia/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      zIndex: {
+        '-1': '-1',
+        '1': '1',
+      },
+    },
     borderRadius: {
-      'none': '0',
-      'sm': '0.125rem',
-      'md': '0.375rem',
-      'lg': '0.5rem',
-      'full': '9999px',
-      'xlg': '3rem',
-    }
+      none: '0',
+      sm: '0.125rem',
+      md: '0.375rem',
+      lg: '0.5rem',
+      full: '9999px',
+      xlg: '3rem',
+    },
   },
   plugins: [],
 }
