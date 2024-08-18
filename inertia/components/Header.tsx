@@ -10,7 +10,7 @@ export default function Header(props: { className?: string; links: TLinks[] }) {
       )}
     >
       <div className={'flex flex-col items-center'}>
-        <img src="/inertia/images/LOGO.png" alt="La conserverie des jeunes" width={'80px'} />
+        <img src="/inertia/images/LOGO.webp" alt="La conserverie des jeunes" width={'80px'} />
         <p className={'font-bold text-lg'}>La Conserve des Jeunes</p>
       </div>
       <div className={'flex gap-5'}>

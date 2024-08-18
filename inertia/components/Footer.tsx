@@ -9,7 +9,7 @@ export default function Footer(props: { links: TLinks[] }) {
     >
       <div className={'flex flex-col justify-center items-center flex-wrap gap-5'}>
         <img
-          src={'/inertia/images/LOGO.png'}
+          src={'/inertia/images/LOGO.webp'}
           alt={'Logo La Conserve Des Jeunes'}
           className={'h-20'}
         />

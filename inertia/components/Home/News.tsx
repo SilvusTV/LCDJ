@@ -18,7 +18,7 @@ export default function News() {
             <p className={'text-xl text-white underline p-4'}>Nos actions du mois</p>
           </a>
           <img
-            src={'/inertia/images/news/1.jpg'}
+            src={'/inertia/images/news-1.webp'}
             alt={'news image'}
             className={'absolute top-0 left-0 w-full h-full object-cover'}
           />
@@ -36,7 +36,7 @@ export default function News() {
             </p>
           </a>
           <img
-            src={'/inertia/images/news/2.jpg'}
+            src={'/inertia/images/news-2.webp'}
             alt={'news image'}
             className={'absolute top-0 left-0 w-full h-full object-cover'}
           />
@@ -54,7 +54,7 @@ export default function News() {
             <p className={'text-xl text-white underline p-4'}>Pour tout savoir sur l’inscription</p>
           </a>
           <img
-            src={'/inertia/images/news/3.jpg'}
+            src={'/inertia/images/news-3.webp'}
             alt={'news image'}
             className={'absolute top-0 left-0 w-full h-full object-cover'}
           />

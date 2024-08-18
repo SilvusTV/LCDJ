@@ -22,7 +22,11 @@ export default function PhoneHeader(props: { className?: string; links: TLinks[]
             }
           >
             <div className={'flex flex-col items-center h-1/4'}>
-              <img src="/inertia/images/LOGO.png" alt="La conserverie des jeunes" width={'100px'} />
+              <img
+                src="/inertia/images/LOGO.webp"
+                alt="La conserverie des jeunes"
+                width={'100px'}
+              />
               <p className={'font-bold text-2xl'}>La Conserve des Jeunes</p>
             </div>
             <div className={'flex flex-col gap-5 h-3/4 items-center'}>

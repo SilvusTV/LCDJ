@@ -1,4 +1,3 @@
-TODO: [Global] Optimiser le chargement des images (voir le chargement des images dans Actions / Partenaires.) (v1 => webp)
 TODO: [Responsive] Chiffres clés (voir la vue intermedière tablette)
 
 TODO: [Global] Faires les mentions legales
