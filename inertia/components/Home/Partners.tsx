@@ -14,25 +14,17 @@ export default function Partners() {
           'w-3/5 flex flex-row items-center gap-10 justify-center flex-wrap mt-24 max-sm:w-full max-sm:p-8 max-sm:my-20'
         }
       >
-        <img src="/inertia/images/Partners/CVEC.png" alt="CVEC" className={'partner-img'} />
-        <img src="/inertia/images/Partners/Crous.png" alt="Crous" className={'partner-img'} />
+        <img src="/inertia/images/CVEC.webp" alt="CVEC" className={'partner-img'} />
+        <img src="/inertia/images/Crous.webp" alt="Crous" className={'partner-img'} />
+        <img src="/inertia/images/ParisLaMie.webp" alt="Paris la Mie" className={'partner-img'} />
+        <img src="/inertia/images/ParisAnim.webp" alt="Paris Anim\'" className={'partner-img'} />
+        <img src="/inertia/images/Deloitte.webp" alt="Deloitte" className={'partner-img'} />
         <img
-          src="/inertia/images/Partners/ParisLaMie.png"
-          alt="Paris la Mie"
-          className={'partner-img'}
-        />
-        <img
-          src="/inertia/images/Partners/ParisAnim.png"
-          alt="Paris Anim\'"
-          className={'partner-img'}
-        />
-        <img src="/inertia/images/Partners/Deloitte.png" alt="Deloitte" className={'partner-img'} />
-        <img
-          src="/inertia/images/Partners/ParisNeuf.png"
+          src="/inertia/images/ParisNeuf.webp"
           alt="Mairie de Paris Neuf"
           className={'partner-img'}
         />
-        <img src="/inertia/images/Partners/Afev.png" alt="Afev" className={'partner-img'} />
+        <img src="/inertia/images/Afev.webp" alt="Afev" className={'partner-img'} />
       </div>
     </div>
   )
