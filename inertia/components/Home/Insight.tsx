@@ -49,7 +49,7 @@ export default function Insight() {
             <p className={'text-8xl font-bold'}>
               {scrollMax > 63 ? <AnimatedNumber n={14} /> : 14}
             </p>
-            <p className={'text-2xl'}>Distrtibution organisées</p>
+            <p className={'text-2xl'}>Distributions organisées</p>
           </div>
           <div
             className={

@@ -16,7 +16,7 @@ export default function Intro(props: { links: TLinks[] }) {
           }
         >
           <LCDJLogo className={'h-1/12'} />
-          <p className={'text-4xl font-bold text-center mt-6'}>La Converse des Jeunes</p>
+          <p className={'text-4xl font-bold text-center mt-6'}>La Conserve des Jeunes</p>
         </div>
         <div className={'text-3xl flex flex-col gap-4 justify-center w-3/5 max-sm:w-full'}>
           <p>
