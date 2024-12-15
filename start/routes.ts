@@ -10,6 +10,8 @@
 import router from '@adonisjs/core/services/router'
 import GlobalsController from '#controllers/globals_controller'
 router.on('/').renderInertia('home')
+router.on('/mentionslegales').renderInertia('mentionslegales')
+router.on('/cgu').renderInertia('cgu')
 
 router
   .group(() => {
