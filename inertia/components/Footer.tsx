@@ -24,8 +24,11 @@ export default function Footer(props: { links: TLinks[] }) {
             </a>
           )
         })}
-        <a href="" className={'animate-underline'}>
+        <a href="/mentionslegales" className={'animate-underline'}>
           Mentions légales
+        </a>
+        <a href="/cgu" className={'animate-underline'}>
+          CGU
         </a>
       </div>
       <div className={'flex flex-col gap-0.5 w-2/12 flex-wrap items-start max-sm:w-full'}>
