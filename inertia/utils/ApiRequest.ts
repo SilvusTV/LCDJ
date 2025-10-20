@@ -23,7 +23,7 @@ export const useApi = <T>(
   const [error, setError] = useState<any | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [key, setKey] = useState<number>(0)
-  const API_URL = import.meta.env.VITE_API_URL
+  const API_URL = (import.meta.env.VITE_API_URL as string | undefined) || '/api'
 
   const abortController = new AbortController()
 

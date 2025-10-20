@@ -5,7 +5,7 @@ export default function Header(props: { className?: string; links: TLinks[] }) {
   return (
     <div
       className={clsx(
-        'h-24 w-screen z-10 bg-orange-light flex items-center justify-between fixed gap-10 top-0 transition-transform duration-300 ease-in-out px-32',
+        'h-24 w-screen z-20 bg-orange-light flex items-center justify-between fixed gap-10 top-0 transition-transform duration-300 ease-in-out px-32',
         props.className
       )}
     >
