@@ -11,6 +11,9 @@ tmp
 
 # Frontend assets compiled code
 public/assets
+mariadb
+minio-data
+sqlite.db
 
 # Build tools specific
 npm-debug.log

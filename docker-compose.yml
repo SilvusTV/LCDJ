@@ -1,16 +1,38 @@
 services:
-  #serveur de base de donnees
-  database:
-    image: 'mariadb:10.3'
-    container_name: database
-    restart: always
+  # S3 compatible storage (MinIO)
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    restart: unless-stopped
     environment:
-      - MYSQL_USER: LCDJ
-      - MYSQL_PASSWORD: LCDJpassword
-      - MYSQL_DATABASE: LCDJDatabase
-      - MYSQL_ROOT_PASSWORD: LCDJrootpassword*
-
+      MINIO_ROOT_USER: lcdjminio
+      MINIO_ROOT_PASSWORD: lcdjminiosecret
+    command: server /data --console-address ":9001"
     ports:
-      - '3306:3306'
+      - '9000:9000'   # S3 API
+      - '9001:9001'   # Web console
     volumes:
-      - ${PWD}/mariadb/:/var/lib/mysql/
+      - ./minio-data:/data
+
+  # Initialize bucket using MinIO Client (mc)
+  minio-setup:
+    image: minio/mc:latest
+    container_name: minio-setup
+    depends_on:
+      - minio
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      "
+      until (mc alias set local http://minio:9000 lcdjminio lcdjminiosecret); do echo 'waiting for minio...'; sleep 2; done; 
+      mc mb -p local/lcdj-news || true; 
+      mc anonymous set download local/lcdj-news || true; 
+      # Create default prefixes by uploading placeholder files
+      mkdir -p /tmp/init && touch /tmp/init/.keep; 
+      mc cp /tmp/init/.keep local/lcdj-news/News/.keep || true; 
+      mc cp /tmp/init/.keep local/lcdj-news/Partners/.keep || true; 
+      echo 'MinIO bucket and default folders initialized'; 
+      "
+    restart: 'no'
+
+volumes:
+  minio-data:

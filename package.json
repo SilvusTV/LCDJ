@@ -14,7 +14,7 @@
     "typecheck": "tsc --noEmit"
   },
   "imports": {
-    "#db": "./datatbase/files/db.json",
+    "#db": "./database/files/db.json",
     "#images/*": "./inertia/images/*",
     "#components/*": "./inertia/components/*.tsx",
     "#controllers/*": "./app/controllers/*.js",
@@ -78,7 +78,10 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-spring": "9.7.4",
-    "reflect-metadata": "0.2.2"
+    "reflect-metadata": "0.2.2",
+    "better-sqlite3": "^11.8.1",
+    "@aws-sdk/client-s3": "^3.666.0",
+    "@aws-sdk/s3-request-presigner": "^3.666.0"
   },
   "hotHook": {
     "boundaries": [
