@@ -27,8 +27,12 @@ export default await Env.create(new URL('../', import.meta.url), {
 
   /*
   |----------------------------------------------------------
-  | Database (SQLite)
+  | Database (PostgreSQL)
   |----------------------------------------------------------
   */
-  SQLITE_DB_PATH: Env.schema.string.optional(),
+  PG_HOST: Env.schema.string({ format: 'host' }),
+  PG_PORT: Env.schema.number(),
+  PG_USER: Env.schema.string(),
+  PG_PASSWORD: Env.schema.string.optional(),
+  PG_DB_NAME: Env.schema.string(),
 })

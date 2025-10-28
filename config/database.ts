@@ -2,14 +2,17 @@ import env from '#start/env'
 import { defineConfig } from '@adonisjs/lucid'
 
 const dbConfig = defineConfig({
-  connection: 'sqlite',
+  connection: 'pg',
   connections: {
-    sqlite: {
-      client: 'better-sqlite3',
+    pg: {
+      client: 'pg',
       connection: {
-        filename: env.get('SQLITE_DB_PATH', 'database/sqlite.db'),
+        host: env.get('PG_HOST', 'localhost'),
+        port: env.get('PG_PORT', '5432'),
+        user: env.get('PG_USER', 'postgres'),
+        password: env.get('PG_PASSWORD', ''),
+        database: env.get('PG_DB_NAME', 'lcdj')
       },
-      useNullAsDefault: true,
       migrations: {
         naturalSort: true,
         paths: ['database/migrations'],

@@ -13,6 +13,7 @@ tmp
 public/assets
 mariadb
 minio-data
+postgres-data
 sqlite.db
 
 # Build tools specific
