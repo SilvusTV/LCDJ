@@ -16,8 +16,6 @@ export default class GlobalsController {
       })
     }
 
-    const newsCount = await News.query().count('* as total')
-    const totalNews = Number(newsCount[0].$extras.total || 0)
     // We no longer auto-seed News from a JSON file. Keep as-is if empty.
   }
 
