@@ -14,7 +14,6 @@
     "typecheck": "tsc --noEmit"
   },
   "imports": {
-    "#db": "./database/files/db.json",
     "#images/*": "./inertia/images/*",
     "#components/*": "./inertia/components/*.tsx",
     "#controllers/*": "./app/controllers/*.js",
@@ -80,7 +79,6 @@
     "react-spring": "9.7.4",
     "reflect-metadata": "0.2.2",
     "pg": "^8.12.0",
-    "better-sqlite3": "^11.8.1",
     "@aws-sdk/client-s3": "^3.666.0",
     "@aws-sdk/s3-request-presigner": "^3.666.0"
   },

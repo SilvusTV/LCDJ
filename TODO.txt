@@ -1,6 +1,6 @@
 TODO: [Global] Faires les mentions legales
 TODO: [Global] Modifier les class custom dans tailwind.config.js => plus propre
-TODO: [Global] Continuer l'implémentation de bd.json => transformer en SQLite
+TODO: [Global] Continuer l'implémentation de bd.json => intégrer définitivement via PostgreSQL
 TODO: [Global] Ajout de i18n pour un stockage facile des textes
 TODO: [Global] Ajout d'une vue administration
 TODO: [Global] Ajouter un bouton "Voir plus" pour les actus

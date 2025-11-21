@@ -2,37 +2,23 @@ import Setting from '#models/setting'
 import News from '#models/news'
 import Partner from '#models/partner'
 import KeyFigure from '#models/key_figure'
-import { readFileSync } from 'node:fs'
-import { dirname, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-const filedbPath = resolve(__dirname, '../../database/files/db.json')
-const filedb: any = JSON.parse(readFileSync(filedbPath, 'utf-8'))
 
 export default class GlobalsController {
   private static async ensureSeeded() {
     const settingsCount = await Setting.query().count('* as total')
     const totalSettings = Number(settingsCount[0].$extras.total || 0)
     if (totalSettings === 0) {
-      // Normalize socials to expected 4 entries if available
-      const socials = Array.isArray(filedb.socials) ? filedb.socials : []
+      // Seed minimal defaults in DB (no filesystem dependency)
       await Setting.create({
-        socials,
-        homeLinks: filedb.links || [],
-        contact: filedb.contact || null,
+        socials: [],
+        homeLinks: [],
+        contact: null,
       })
     }
 
     const newsCount = await News.query().count('* as total')
     const totalNews = Number(newsCount[0].$extras.total || 0)
-    if (totalNews === 0) {
-      const newsArr = filedb.news || []
-      for (const n of newsArr) {
-        await News.create({ title: n.title, imageName: n.imageName || null, link: n.link })
-      }
-    }
+    // We no longer auto-seed News from a JSON file. Keep as-is if empty.
   }
 
   public static async getNews() {
@@ -57,8 +43,8 @@ export default class GlobalsController {
     await GlobalsController.ensureSeeded()
     const s = await Setting.first()
     if (s && s.contact) return s.contact
-    // Fallback to file
-    return (filedb as any).contact
+    // No file fallback anymore
+    return null
   }
 
   public static async getPartners() {
