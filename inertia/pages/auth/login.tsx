@@ -45,7 +45,7 @@ export default function Login() {
       <div className="w-8/12 py-12 max-w-xl">
         <a href="/">← Retour</a>
         <h1 className="text-3xl font-bold mb-6">Connexion</h1>
-        <form onSubmit={onSubmit} className="flex flex-col gap-3">
+        <form onSubmit={onSubmit} className="flex flex-col gap-3" autoComplete="on">
           <input
             className="border px-3 py-2 rounded"
             type="email"
@@ -53,6 +53,13 @@ export default function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            id="email"
+            name="email"
+            autoComplete="email"
+            inputMode="email"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
           />
           <input
             className="border px-3 py-2 rounded"
@@ -61,6 +68,9 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            id="password"
+            name="password"
+            autoComplete="current-password"
           />
           <button className="bg-blue-600 text-white px-4 py-2 rounded disabled:opacity-50" disabled={loading}>
             {loading ? 'Connexion...' : 'Se connecter'}
