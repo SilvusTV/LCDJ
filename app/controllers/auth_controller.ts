@@ -11,8 +11,7 @@ export default class AuthController {
   }
 
   public async login({ request, auth, response }: HttpContext) {
-    const { password } = request.only(['password'])
-    const email = ((request.input('email') as string) || '').trim().toLowerCase()
+    const { email, password } = request.only(['email', 'password'])
 
     try {
       const user = await User.verifyCredentials(email, password)
@@ -24,9 +23,7 @@ export default class AuthController {
   }
 
   public async register({ request, auth, response }: HttpContext) {
-    const fullName = (request.input('fullName') as string) || null
-    const email = ((request.input('email') as string) || '').trim().toLowerCase()
-    const password = request.input('password') as string
+    const { fullName, email, password } = request.only(['fullName', 'email', 'password'])
 
     try {
       const user = await User.create({ fullName: fullName || null, email, password, role: 'user', scopes: null })
