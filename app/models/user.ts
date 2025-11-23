@@ -20,7 +20,16 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare email: string
 
   @column()
-  declare password: string
+  declare password: string | null
+
+  @column()
+  declare provider: string | null
+
+  @column({ columnName: 'provider_id' })
+  declare providerId: string | null
+
+  @column({ columnName: 'avatar_url' })
+  declare avatarUrl: string | null
 
   @column()
   declare role: string
@@ -36,7 +45,7 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @beforeSave()
   static async hashPassword(user: User) {
-    if (user.$dirty.password) {
+    if (user.$dirty.password && user.password) {
       user.password = await hash.make(user.password)
     }
   }

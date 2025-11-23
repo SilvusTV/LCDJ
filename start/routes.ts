@@ -21,11 +21,11 @@ router.on('/').renderInertia('home')
 router.on('/mentionslegales').renderInertia('mentionslegales')
 router.on('/cgu').renderInertia('cgu')
 
-// Auth routes
+// Auth routes (Google OAuth only)
 router.get('/login', [AuthController, 'showLogin']).use([middleware.guest()])
-router.post('/login', [AuthController, 'login']).use([middleware.guest()])
 router.get('/register', [AuthController, 'showRegister']).use([middleware.guest()])
-router.post('/register', [AuthController, 'register']).use([middleware.guest()])
+router.get('/auth/google/redirect', [AuthController, 'googleRedirect']).use([middleware.guest()])
+router.get('/auth/google/callback', [AuthController, 'googleCallback']).use([middleware.guest()])
 router.post('/logout', [AuthController, 'logout']).use([middleware.auth()])
 
 router

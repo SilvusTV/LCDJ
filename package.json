@@ -59,6 +59,7 @@
     "vite": "5.4.5"
   },
   "dependencies": {
+    "@adonisjs/ally": "^5.1.1",
     "@adonisjs/auth": "9.2.3",
     "@adonisjs/core": "6.13.1",
     "@adonisjs/cors": "2.2.1",
@@ -68,19 +69,19 @@
     "@adonisjs/shield": "8.1.1",
     "@adonisjs/static": "1.1.1",
     "@adonisjs/vite": "3.0.0",
+    "@aws-sdk/client-s3": "^3.666.0",
+    "@aws-sdk/s3-request-presigner": "^3.666.0",
     "@inertiajs/react": "1.2.0",
     "@vinejs/vine": "2.1.0",
     "clsx": "2.1.1",
     "edge.js": "6.0.2",
     "luxon": "3.5.0",
     "mysql2": "3.11.2",
+    "pg": "^8.12.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-spring": "9.7.4",
-    "reflect-metadata": "0.2.2",
-    "pg": "^8.12.0",
-    "@aws-sdk/client-s3": "^3.666.0",
-    "@aws-sdk/s3-request-presigner": "^3.666.0"
+    "reflect-metadata": "0.2.2"
   },
   "hotHook": {
     "boundaries": [
