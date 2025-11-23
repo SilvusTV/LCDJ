@@ -68,6 +68,7 @@ router
         router.get('partners', [AdminPartnersController, 'list'])
         router.post('partners', [AdminPartnersController, 'create'])
         router.post('partners/upload-url', [AdminPartnersController, 'uploadUrl'])
+        router.post('partners/upload', [AdminPartnersController, 'upload'])
         router.delete('partners/:id', [AdminPartnersController, 'destroy'])
 
         // Key Figures

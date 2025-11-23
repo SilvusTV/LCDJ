@@ -47,4 +47,47 @@ export default class PartnersController {
     const publicUrl = s3PublicUrl(key)
     return { key, uploadUrl, publicUrl }
   }
+
+  // Server-side upload for Partner logo (to avoid browser-signed URLs)
+  // Accepts multipart form-data with field: logo (file)
+  // Returns the public URL so the frontend can then call create/update with logoUrl
+  public async upload({ request, response }: HttpContext) {
+    const file = request.file('logo') as any
+    if (!file) {
+      return response.status(400).send({ error: 'Le fichier logo est requis (champ "logo").' })
+    }
+
+    const originalName: string = (file?.clientName as string) || 'logo'
+    const safe = sanitizeFileName(originalName)
+    const key = `Partners/${Date.now()}_${safe}`
+
+    // Read file buffer from tmp path or in-memory
+    let buffer: Buffer | null = null
+    try {
+      const fs = await import('fs/promises')
+      if (file?.tmpPath) {
+        buffer = await fs.readFile(file.tmpPath as string)
+      } else if (typeof (file as any).toBuffer === 'function') {
+        buffer = await (file as any).toBuffer()
+      }
+    } catch (e) {
+      return { error: 'Impossible de lire le fichier uploadé' }
+    }
+
+    if (!buffer) {
+      return { error: 'Fichier invalide' }
+    }
+
+    await s3.send(
+      new PutObjectCommand({
+        Bucket: S3_BUCKET,
+        Key: key,
+        Body: buffer,
+        ContentType: (file?.type && file?.subtype) ? `${file.type}/${file.subtype}` : 'application/octet-stream',
+      })
+    )
+
+    const publicUrl = s3PublicUrl(key)
+    return { success: true, key, publicUrl }
+  }
 }
