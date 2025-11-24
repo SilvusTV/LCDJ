@@ -25,7 +25,7 @@ export default function Partners({ groupKey }: { groupKey?: string }) {
               )}
             </a>
           ))
-        ):<div className={'text-red-200 mt-4 text-sm'}>Erreur lors du chargement des actus.</div>}
+        ):<div className={'text-blue-200 mt-4 text-sm'}>Erreur lors du chargement des actus.</div>}
       </div>
     </div>
   )

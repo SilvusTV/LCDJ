@@ -1,7 +1,7 @@
 import Wave2 from '~/components/SVG/Wave2'
 import AnimatedNumber from '~/components/AnimatedNumber'
 import getScrollPercentage from '~/utils/getScrollPercentage'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useApi } from '~/utils/ApiRequest'
 
 interface KeyFigure { id: number; title: string; value: number; unit?: string | null }
@@ -39,31 +39,76 @@ export default function Insight() {
         ) : items.length === 0 ? (
           <div className="text-white/80">Aucun chiffre clé pour le moment.</div>
         ) : (
-          <div className="flex justify-items-center max-sm:w-full max-sm:p-8 gap-8">
+          <div className="flex flex-wrap justify-center justify-items-center max-sm:w-full max-sm:p-8 gap-10">
             {items.map((k) => (
-              <div key={k.id} className={'flex flex-col gap-7 items-center w-60 text-center'}>
-                <div className={'text-8xl font-bold flex items-end justify-center'}>
-                  <span>
-                    {scrollMax > 63 ? (
-                      <AnimatedNumber n={k.value} />
-                    ) : (
-                      k.value.toLocaleString('fr-FR')
-                    )}
-                  </span>
-                  {k.unit ? (
-                    <span className={'ml-2 font-extrabold leading-none'} style={{ fontSize: '0.5em' }}>
-                      {k.unit}
-                    </span>
-                  ) : null}
-                </div>
-                <p className={'text-2xl'}>{k.title}</p>
-              </div>
+              <KeyFigureItem key={k.id} k={k} scrollMax={scrollMax} />
             ))}
           </div>
         )}
       </div>
 
       {error && <div className={'text-red-200 mt-4 text-sm'}>Erreur lors du chargement des chiffres clés.</div>}
+    </div>
+  )
+}
+
+function KeyFigureItem({
+  k,
+  scrollMax,
+}: {
+  k: { id: number; title: string; value: number; unit?: string | null }
+  scrollMax: number
+}) {
+  const numberRef = useRef<HTMLDivElement | null>(null)
+  const [measuredWidth, setMeasuredWidth] = useState<number | null>(null)
+
+  useEffect(() => {
+    const el = numberRef.current
+    if (!el) return
+
+    // Measure width and update on any size change
+    const ro = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const w = Math.ceil(entry.contentRect.width)
+        if (!Number.isNaN(w)) setMeasuredWidth(w)
+      }
+    })
+    ro.observe(el)
+
+    // Initial measure (in case ResizeObserver doesn’t fire immediately)
+    const rect = el.getBoundingClientRect()
+    if (rect.width) setMeasuredWidth(Math.ceil(rect.width))
+
+    return () => {
+      ro.disconnect()
+    }
+  }, [k.value, k.unit])
+
+  return (
+    <div
+      className={
+        'flex flex-col gap-7 items-center text-center inline-flex min-w-[15rem]'
+      }
+      style={{ width: measuredWidth ? `${measuredWidth}px` : undefined, minWidth: '15rem' }}
+    >
+      <div
+        ref={numberRef}
+        className={'text-8xl font-bold inline-flex items-end justify-center whitespace-nowrap'}
+      >
+        <span className="inline-block">
+          {scrollMax > 63 ? (
+            <AnimatedNumber n={k.value} />
+          ) : (
+            k.value.toLocaleString('fr-FR')
+          )}
+        </span>
+        {k.unit ? (
+          <span className={'ml-2 font-extrabold leading-none'} style={{ fontSize: '0.5em' }}>
+            {k.unit}
+          </span>
+        ) : null}
+      </div>
+      <p className={'text-2xl w-full break-words'}>{k.title}</p>
     </div>
   )
 }
