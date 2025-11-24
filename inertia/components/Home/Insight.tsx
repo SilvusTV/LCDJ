@@ -6,6 +6,18 @@ import { useApi } from '~/utils/ApiRequest'
 
 interface KeyFigure { id: number; title: string; value: number; unit?: string | null }
 
+/**
+ * Formateur: insère des points pour séparer les milliers.
+ * - 1234567 => "1.234.567"
+ * - Gère aussi les nombres négatifs (ex: -12000 => "-12.000").
+ * - Les décimales sont ignorées (arrondi à l'entier), cohérent avec l'animation en entier.
+ */
+function formatThousandsDot(n: number): string {
+  const sign = n < 0 ? '-' : ''
+  const int = Math.abs(Math.trunc(n))
+  return sign + int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+}
+
 export default function Insight() {
   const { scrollPercentage } = getScrollPercentage()
   const [scrollMax, setScrollMax] = useState(0)
@@ -97,9 +109,9 @@ function KeyFigureItem({
       >
         <span className="inline-block">
           {scrollMax > 63 ? (
-            <AnimatedNumber n={k.value} />
+            <AnimatedNumber n={k.value} format={formatThousandsDot} />
           ) : (
-            k.value.toLocaleString('fr-FR')
+            formatThousandsDot(k.value)
           )}
         </span>
         {k.unit ? (

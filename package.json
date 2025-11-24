@@ -11,7 +11,8 @@
     "test": "node ace test",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "deploy": "node ace build && cp .env build/.env && cd build && npm install && pm2 restart 0 && cd .."
   },
   "imports": {
     "#images/*": "./inertia/images/*",
