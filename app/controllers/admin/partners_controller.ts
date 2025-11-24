@@ -2,7 +2,6 @@ import type { HttpContext } from '@adonisjs/core/http'
 import Partner from '#models/partner'
 import { s3, S3_BUCKET, s3PublicUrl } from '#services/s3'
 import { PutObjectCommand } from '@aws-sdk/client-s3'
-import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 
 function sanitizeFileName(name: string) {
   return name
@@ -34,18 +33,12 @@ export default class PartnersController {
     return { success: true }
   }
 
-  // Pre-signed PUT upload for Partner logo
-  public async uploadUrl({ request }: HttpContext) {
-    const fileName = String(request.input('fileName') || '')
-    const contentType = String(request.input('contentType') || 'application/octet-stream')
-    if (!fileName) return { error: 'fileName is required' }
-    const safe = sanitizeFileName(fileName)
-    const key = `Partners/${Date.now()}_${safe}`
-
-    const cmd = new PutObjectCommand({ Bucket: S3_BUCKET, Key: key, ContentType: contentType })
-    const uploadUrl = await getSignedUrl(s3, cmd, { expiresIn: 60 })
-    const publicUrl = s3PublicUrl(key)
-    return { key, uploadUrl, publicUrl }
+  // Deprecated: pre-signed URL flow is disabled behind /files proxy
+  public async uploadUrl({ response }: HttpContext) {
+    return response.status(410).send({
+      error: 'Le flux d\'upload par URL signée côté navigateur est désactivé. Utilisez l\'upload côté serveur.',
+      use: 'POST /api/admin/partners/upload (multipart: logo)'
+    })
   }
 
   // Server-side upload for Partner logo (to avoid browser-signed URLs)
