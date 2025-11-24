@@ -90,14 +90,19 @@ export default class NewsController {
       return { error: "Fichier invalide" }
     }
 
-    await s3.send(
-      new PutObjectCommand({
-        Bucket: S3_BUCKET,
-        Key: key,
-        Body: buffer,
-        ContentType: (file?.type && file?.subtype) ? `${file.type}/${file.subtype}` : 'application/octet-stream',
-      })
-    )
+    try {
+      await s3.send(
+        new PutObjectCommand({
+          Bucket: S3_BUCKET,
+          Key: key,
+          Body: buffer,
+          ContentType: (file?.type && file?.subtype) ? `${file.type}/${file.subtype}` : 'application/octet-stream',
+        })
+      )
+    } catch (e) {
+      // Ne pas renvoyer l'objet d'erreur complet (circulaire). Répondre proprement.
+      return response.status(502).send({ error: "Échec de l'upload S3 (News). Vérifiez la configuration MinIO." })
+    }
 
     const publicUrl = s3PublicUrl(key)
     const n = await News.create({ title, link, imageName: publicUrl })
@@ -134,14 +139,18 @@ export default class NewsController {
       return { error: 'Fichier invalide' }
     }
 
-    await s3.send(
-      new PutObjectCommand({
-        Bucket: S3_BUCKET,
-        Key: key,
-        Body: buffer,
-        ContentType: (file?.type && file?.subtype) ? `${file.type}/${file.subtype}` : 'application/octet-stream',
-      })
-    )
+    try {
+      await s3.send(
+        new PutObjectCommand({
+          Bucket: S3_BUCKET,
+          Key: key,
+          Body: buffer,
+          ContentType: (file?.type && file?.subtype) ? `${file.type}/${file.subtype}` : 'application/octet-stream',
+        })
+      )
+    } catch (e) {
+      return response.status(502).send({ error: "Échec de l'upload S3 (News image). Vérifiez la configuration MinIO." })
+    }
 
     const imageUrl = s3PublicUrl(key)
     return { success: true, key, imageUrl }

@@ -1,7 +1,10 @@
 import env from '#start/env'
 import { S3Client } from '@aws-sdk/client-s3'
 
-const endpoint = env.get('S3_ENDPOINT') as string
+// Public endpoint used to build URLs visible from the browser
+const publicEndpoint = env.get('S3_ENDPOINT') as string
+// Internal endpoint used by the backend SDK to talk directly to MinIO (no /files proxy)
+const internalEndpoint = (env.get('S3_INTERNAL_ENDPOINT') as string) || publicEndpoint
 const region = (env.get('S3_REGION', 'us-east-1') as string) || 'us-east-1'
 const forcePathStyle = env.get('S3_FORCE_PATH_STYLE') === 'true'
 
@@ -12,7 +15,7 @@ const secretAccessKey = env.get('S3_SECRET_KEY') as string
 
 export const s3 = new S3Client({
   region,
-  endpoint,
+  endpoint: internalEndpoint,
   forcePathStyle,
   credentials: {
     accessKeyId,
@@ -21,7 +24,7 @@ export const s3 = new S3Client({
 })
 
 export function s3PublicUrl(key: string) {
-  const base = (endpoint as string).replace(/\/$/, '')
+  const base = (publicEndpoint as string).replace(/\/$/, '')
   const parts = key.split('/').map(encodeURIComponent).join('/')
   return `${base}/${S3_BUCKET}/${parts}`
 }
