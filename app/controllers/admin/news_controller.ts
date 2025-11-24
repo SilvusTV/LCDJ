@@ -51,13 +51,7 @@ export default class NewsController {
     return { success: true }
   }
 
-  // Deprecated: pre-signed URL flow is disabled behind /files proxy
-  public async uploadUrl({ response }: HttpContext) {
-    return response.status(410).send({
-      error: 'Le flux d\'upload par URL signée côté navigateur est désactivé. Utilisez l\'upload côté serveur.',
-      use: 'POST /api/admin/news/upload (multipart: title, link, image)'
-    })
-  }
+  // (removed) pre-signed URL flow disabled — route supprimée
 
   public async destroy({ params }: HttpContext) {
     const n = await News.findOrFail(params.id)
@@ -108,5 +102,48 @@ export default class NewsController {
     const publicUrl = s3PublicUrl(key)
     const n = await News.create({ title, link, imageName: publicUrl })
     return { success: true, id: n.id, imageUrl: publicUrl }
+  }
+
+  // Server-side helper to upload only the image (for edit/create flows that need the URL first)
+  // Accepts multipart form-data with field: image
+  // Returns: { success, key, imageUrl }
+  public async uploadImage({ request, response }: HttpContext) {
+    const file = request.file('image') as any
+    if (!file) {
+      return response.status(400).send({ error: 'Le fichier image est requis (champ "image").' })
+    }
+
+    const originalName: string = (file?.clientName as string) || 'image'
+    const safe = sanitizeFileName(originalName)
+    const key = `News/${Date.now()}_${safe}`
+
+    // Read buffer
+    let buffer: Buffer | null = null
+    try {
+      const fs = await import('fs/promises')
+      if (file?.tmpPath) {
+        buffer = await fs.readFile(file.tmpPath as string)
+      } else if (typeof (file as any).toBuffer === 'function') {
+        buffer = await (file as any).toBuffer()
+      }
+    } catch (e) {
+      return { error: "Impossible de lire le fichier uploadé" }
+    }
+
+    if (!buffer) {
+      return { error: 'Fichier invalide' }
+    }
+
+    await s3.send(
+      new PutObjectCommand({
+        Bucket: S3_BUCKET,
+        Key: key,
+        Body: buffer,
+        ContentType: (file?.type && file?.subtype) ? `${file.type}/${file.subtype}` : 'application/octet-stream',
+      })
+    )
+
+    const imageUrl = s3PublicUrl(key)
+    return { success: true, key, imageUrl }
   }
 }

@@ -33,13 +33,7 @@ export default class PartnersController {
     return { success: true }
   }
 
-  // Deprecated: pre-signed URL flow is disabled behind /files proxy
-  public async uploadUrl({ response }: HttpContext) {
-    return response.status(410).send({
-      error: 'Le flux d\'upload par URL signée côté navigateur est désactivé. Utilisez l\'upload côté serveur.',
-      use: 'POST /api/admin/partners/upload (multipart: logo)'
-    })
-  }
+  // (removed) pre-signed URL flow disabled — route supprimée
 
   // Server-side upload for Partner logo (to avoid browser-signed URLs)
   // Accepts multipart form-data with field: logo (file)

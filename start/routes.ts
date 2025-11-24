@@ -58,8 +58,9 @@ router
         router.get('news', [AdminNewsController, 'list'])
         router.post('news', [AdminNewsController, 'create'])
         router.patch('news/:id', [AdminNewsController, 'update'])
-        router.post('news/upload-url', [AdminNewsController, 'uploadUrl'])
+        // News uploads: server-side only
         router.post('news/upload', [AdminNewsController, 'upload'])
+        router.post('news/upload-image', [AdminNewsController, 'uploadImage'])
         router.delete('news/:id', [AdminNewsController, 'destroy'])
         router.get('users', [UsersController, 'list'])
         router.patch('users/:id', [UsersController, 'update'])
@@ -67,7 +68,7 @@ router
         // Partners
         router.get('partners', [AdminPartnersController, 'list'])
         router.post('partners', [AdminPartnersController, 'create'])
-        router.post('partners/upload-url', [AdminPartnersController, 'uploadUrl'])
+        // Partners uploads: server-side only
         router.post('partners/upload', [AdminPartnersController, 'upload'])
         router.delete('partners/:id', [AdminPartnersController, 'destroy'])
 

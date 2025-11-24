@@ -56,66 +56,43 @@ export default function AdminNews({ news }: { news?: NewsItem[] }) {
 
   const add = async () => {
     setMessage(null)
-    let imageUrl: string | null = null
-    let createdViaUploadEndpoint = false
-
-    if (file) {
-      // Ask server for a pre-signed PUT URL for this file
-      const upRes = await fetch('/api/admin/news/upload-url', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '',
-        },
-        credentials: 'same-origin',
-        body: JSON.stringify({ fileName: file.name, contentType: file.type || 'application/octet-stream' }),
-      })
-      const upData = await upRes.json()
-      if (upData?.uploadUrl && upData?.publicUrl) {
-        // Upload to S3 directly from the browser
-        const putRes = await fetch(upData.uploadUrl, {
-          method: 'PUT',
-          headers: { 'Content-Type': file.type || 'application/octet-stream' },
-          body: file,
-        })
-        if (putRes.ok) {
-          imageUrl = upData.publicUrl
-        }
-      }
-
-      // Fallback: send the file to our API if direct PUT failed or not available
-      if (!imageUrl) {
-        const form = new FormData()
-        form.append('title', title)
-        form.append('link', link)
-        form.append('image', file)
-        const upRes2 = await fetch('/api/admin/news/upload', {
-          method: 'POST',
-          headers: { 'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '' },
-          credentials: 'same-origin',
-          body: form,
-        })
-        const upData2 = await upRes2.json()
-        if (upData2?.success && upData2?.imageUrl) {
-          imageUrl = upData2.imageUrl
-          createdViaUploadEndpoint = true
-        } else if (!upRes2.ok) {
-          setMessage("Échec de l'upload de l'image")
-          return
-        }
-      }
+    // Pour créer une actu, une image est requise côté backend
+    if (!file) {
+      setMessage("Veuillez sélectionner une image avant d'ajouter l'actualité")
+      return
     }
 
-    if (!createdViaUploadEndpoint) {
-      await fetch('/api/admin/news', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '',
-        },
-        credentials: 'same-origin',
-        body: JSON.stringify({ title, link, imageName: imageUrl }),
-      })
+    // 1) Uploader l'image côté serveur pour obtenir son URL publique
+    const formFile = new FormData()
+    formFile.append('image', file)
+    const upRes = await fetch('/api/admin/news/upload-image', {
+      method: 'POST',
+      headers: { 'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '' },
+      credentials: 'same-origin',
+      body: formFile,
+    })
+    const upData = await upRes.json().catch(() => null)
+    if (!upRes.ok || !upData?.imageUrl) {
+      setMessage("Échec de l'upload de l'image")
+      return
+    }
+
+    const imageUrl: string = upData.imageUrl
+
+    // 2) Créer l'actualité avec l'URL d'image
+    const createRes = await fetch('/api/admin/news', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '',
+      },
+      credentials: 'same-origin',
+      body: JSON.stringify({ title, link, imageName: imageUrl }),
+    })
+    if (!createRes.ok) {
+      const err = await createRes.json().catch(() => null)
+      setMessage(err?.error || "Échec de la création de l'actualité")
+      return
     }
     setTitle('')
     setLink('')
@@ -128,43 +105,28 @@ export default function AdminNews({ news }: { news?: NewsItem[] }) {
     if (!id) return
     setMessage(null)
     try {
-      let imageUrl: string | null | undefined = undefined
+      let nextImageName: string | null | undefined = currentImageName
 
       if (file) {
-        const upRes = await fetch('/api/admin/news/upload-url', {
+        // Uploader la nouvelle image pour obtenir l'URL
+        const formFile = new FormData()
+        formFile.append('image', file)
+        const upRes = await fetch('/api/admin/news/upload-image', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '',
-          },
+          headers: { 'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '' },
           credentials: 'same-origin',
-          body: JSON.stringify({ fileName: file.name, contentType: file.type || 'application/octet-stream' }),
+          body: formFile,
         })
         const upData = await upRes.json().catch(() => null)
-        if (upData?.uploadUrl && upData?.publicUrl) {
-          const putRes = await fetch(upData.uploadUrl, {
-            method: 'PUT',
-            headers: { 'Content-Type': file.type || 'application/octet-stream' },
-            body: file,
-          })
-          if (putRes.ok) {
-            imageUrl = upData.publicUrl
-          } else {
-            setMessage("Échec de l'upload de l'image")
-            return
-          }
-        } else {
-          setMessage("Échec de la génération de l'URL d'upload")
+        if (!upRes.ok || !upData?.imageUrl) {
+          setMessage("Échec de l'upload de l'image")
           return
         }
+        nextImageName = upData.imageUrl
       }
 
       const payload: any = { title, link }
-      if (imageUrl !== undefined) {
-        payload.imageName = imageUrl
-      } else if (currentImageName !== undefined) {
-        payload.imageName = currentImageName
-      }
+      if (nextImageName !== undefined) payload.imageName = nextImageName
 
       const r = await fetch(`/api/admin/news/${id}`, {
         method: 'PATCH',

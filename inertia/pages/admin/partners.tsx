@@ -32,25 +32,33 @@ export default function AdminPartners({ partners }: { partners?: PartnerItem[] }
     let logoUrl: string | null = null
 
     if (file) {
-      const upRes = await fetch('/api/admin/partners/upload-url', {
+      const form = new FormData()
+      form.append('logo', file)
+      const upRes = await fetch('/api/admin/partners/upload', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '' },
+        headers: { 'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '' },
         credentials: 'same-origin',
-        body: JSON.stringify({ fileName: file.name, contentType: file.type || 'application/octet-stream' }),
+        body: form,
       })
-      const upData = await upRes.json()
-      if (upData?.uploadUrl && upData?.publicUrl) {
-        const putRes = await fetch(upData.uploadUrl, { method: 'PUT', headers: { 'Content-Type': file.type || 'application/octet-stream' }, body: file })
-        if (putRes.ok) logoUrl = upData.publicUrl
+      const upData = await upRes.json().catch(() => null)
+      if (!upRes.ok || !upData?.publicUrl) {
+        setMessage("Échec de l'upload du logo")
+        return
       }
+      logoUrl = upData.publicUrl
     }
 
-    await fetch('/api/admin/partners', {
+    const createRes = await fetch('/api/admin/partners', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '' },
       credentials: 'same-origin',
       body: JSON.stringify({ name, url, logoUrl }),
     })
+    if (!createRes.ok) {
+      const err = await createRes.json().catch(() => null)
+      setMessage(err?.error || 'Échec de la création du partenaire')
+      return
+    }
 
     setName('')
     setUrl('')
