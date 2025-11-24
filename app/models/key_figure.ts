@@ -11,6 +11,9 @@ export default class KeyFigure extends BaseModel {
   @column()
   declare value: number
 
+  @column()
+  declare unit: string | null
+
   @column({ columnName: 'sort_order' })
   declare sortOrder: number
 

@@ -4,7 +4,7 @@ import getScrollPercentage from '~/utils/getScrollPercentage'
 import { useEffect, useState } from 'react'
 import { useApi } from '~/utils/ApiRequest'
 
-interface KeyFigure { id: number; title: string; value: number }
+interface KeyFigure { id: number; title: string; value: number; unit?: string | null }
 
 export default function Insight() {
   const { scrollPercentage } = getScrollPercentage()
@@ -42,13 +42,20 @@ export default function Insight() {
           <div className="flex justify-items-center max-sm:w-full max-sm:p-8 gap-8">
             {items.map((k) => (
               <div key={k.id} className={'flex flex-col gap-7 items-center w-60 text-center'}>
-                <p className={'text-8xl font-bold'}>
-                  {scrollMax > 63 ? (
-                    <AnimatedNumber n={k.value} />
-                  ) : (
-                    k.value.toLocaleString('fr-FR')
-                  )}
-                </p>
+                <div className={'text-8xl font-bold flex items-end justify-center'}>
+                  <span>
+                    {scrollMax > 63 ? (
+                      <AnimatedNumber n={k.value} />
+                    ) : (
+                      k.value.toLocaleString('fr-FR')
+                    )}
+                  </span>
+                  {k.unit ? (
+                    <span className={'ml-2 font-extrabold leading-none'} style={{ fontSize: '0.5em' }}>
+                      {k.unit}
+                    </span>
+                  ) : null}
+                </div>
                 <p className={'text-2xl'}>{k.title}</p>
               </div>
             ))}

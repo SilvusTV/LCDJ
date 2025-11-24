@@ -12,7 +12,7 @@ import { useApi } from '~/utils/ApiRequest'
 import { TLinks } from '../../app/Types/TLinks'
 import { isSmartphone } from '~/utils/getDevice'
 import PhoneHeader from '~/components/PhoneHeader'
-import LOGO from '/inertia/images/LOGO.webp'
+import LOGO from '~/images/LOGO.webp'
 
 export default function Home() {
   const { scrollPercentage } = getScrollPercentage()

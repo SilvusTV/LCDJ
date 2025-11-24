@@ -2,6 +2,7 @@ import Setting from '#models/setting'
 import News from '#models/news'
 import Partner from '#models/partner'
 import KeyFigure from '#models/key_figure'
+import type { HttpContext } from '@adonisjs/core/http'
 
 export default class GlobalsController {
   private static async ensureSeeded() {
@@ -45,13 +46,19 @@ export default class GlobalsController {
     return null
   }
 
-  public static async getPartners() {
-    const partners = await Partner.query().orderBy('sort_order', 'asc').orderBy('created_at', 'desc')
+  public static async getPartners({ request }: HttpContext) {
+    const key = request.input('key') as string | undefined
+    const q = Partner.query()
+    if (key !== undefined) {
+      if (key === '' || key === 'null') q.whereNull('group_key')
+      else q.where('group_key', key)
+    }
+    const partners = await q.orderBy('sort_order', 'asc').orderBy('created_at', 'desc')
     return partners.map((p) => ({ id: p.id, name: p.name, url: (p as any).url || null, logoUrl: (p as any).logoUrl || null }))
   }
 
   public static async getKeyFigures() {
     const items = await KeyFigure.query().orderBy('sort_order', 'asc').orderBy('created_at', 'desc')
-    return items.map((k) => ({ id: k.id, title: k.title, value: k.value }))
+    return items.map((k) => ({ id: k.id, title: k.title, value: k.value, unit: (k as any).unit ?? null }))
   }
 }

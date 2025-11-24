@@ -3,8 +3,8 @@ import { useApi } from '~/utils/ApiRequest'
 
 interface Partner { id: number; name: string; url?: string | null; logoUrl?: string | null }
 
-export default function Partners() {
-  const { data } = useApi<Partner[]>('getPartners', { method: 'GET' })
+export default function Partners({ groupKey }: { groupKey?: string }) {
+  const { data } = useApi<Partner[]>('getPartners', { method: 'GET', queryParams: groupKey ? { key: groupKey } : undefined })
   const partners: Partner[] = Array.isArray(data) ? data : []
   const hasDynamic = partners.length > 0
 
@@ -25,17 +25,7 @@ export default function Partners() {
               )}
             </a>
           ))
-        ) : (
-          <>
-            <img src="/inertia/images/CVEC.webp" alt="CVEC" className={'partner-img'} />
-            <img src="/inertia/images/Crous.webp" alt="Crous" className={'partner-img'} />
-            <img src="/inertia/images/ParisLaMie.webp" alt="Paris la Mie" className={'partner-img'} />
-            <img src="/inertia/images/ParisAnim.webp" alt="Paris Anim'" className={'partner-img'} />
-            <img src="/inertia/images/Deloitte.webp" alt="Deloitte" className={'partner-img'} />
-            <img src="/inertia/images/ParisNeuf.webp" alt="Mairie de Paris Neuf" className={'partner-img'} />
-            <img src="/inertia/images/Afev.webp" alt="Afev" className={'partner-img'} />
-          </>
-        )}
+        ):<div className={'text-red-200 mt-4 text-sm'}>Erreur lors du chargement des actus.</div>}
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
 import { TLinks } from '../../app/Types/TLinks'
 import { useApi } from '~/utils/ApiRequest'
+import LOGO from '~/images/LOGO.webp'
 
 interface SocialLink { title: string; url: string }
 interface ContactInfo { email?: string; address?: string; city?: string; country?: string; phone?: string }
@@ -18,11 +19,7 @@ export default function Footer(props: { links: TLinks[] }) {
       }
     >
       <div className={'flex flex-col justify-center items-center flex-wrap gap-5'}>
-        <img
-          src={'/inertia/images/LOGO.webp'}
-          alt={'Logo La Conserve Des Jeunes'}
-          className={'h-20'}
-        />
+        <img src={LOGO} alt={'Logo La Conserve Des Jeunes'} className={'h-20'} />
         <h1 className={'text-l font-bold text-center'}>La Conserve des Jeunes</h1>
       </div>
       <div className={'flex flex-col gap-0.5 w-2/12 flex-wrap items-start max-sm:w-full'}>

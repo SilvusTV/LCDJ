@@ -16,9 +16,13 @@ export default function AdminPartners({ partners }: { partners?: PartnerItem[] }
   const [url, setUrl] = useState('')
   const [file, setFile] = useState<File | null>(null)
   const [message, setMessage] = useState<string | null>(null)
+  const [currentKey, setCurrentKey] = useState<string>('')
+  const [dragIndex, setDragIndex] = useState<number | null>(null)
+  const [orderDirty, setOrderDirty] = useState(false)
 
   const load = async () => {
-    const r = await fetch('/api/admin/partners')
+    const qs = currentKey !== '' ? `?key=${encodeURIComponent(currentKey)}` : ''
+    const r = await fetch(`/api/admin/partners${qs}`)
     const data = await r.json()
     setItems(data)
   }
@@ -52,7 +56,7 @@ export default function AdminPartners({ partners }: { partners?: PartnerItem[] }
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '' },
       credentials: 'same-origin',
-      body: JSON.stringify({ name, url, logoUrl }),
+      body: JSON.stringify({ name, url, logoUrl, key: currentKey }),
     })
     if (!createRes.ok) {
       const err = await createRes.json().catch(() => null)
@@ -77,9 +81,44 @@ export default function AdminPartners({ partners }: { partners?: PartnerItem[] }
     await load()
   }
 
+  const onDragStart = (index: number) => setDragIndex(index)
+  const onDragOver = (e: React.DragEvent<HTMLLIElement>, index: number) => {
+    e.preventDefault()
+    if (dragIndex === null || dragIndex === index) return
+    const copy = [...items]
+    const [moved] = copy.splice(dragIndex, 1)
+    copy.splice(index, 0, moved)
+    setItems(copy)
+    setDragIndex(index)
+    setOrderDirty(true)
+  }
+  const onDrop = () => setDragIndex(null)
+
+  const saveOrder = async () => {
+    const ids = items.map((it) => it.id).filter(Boolean) as number[]
+    await fetch('/api/admin/partners/reorder', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '' },
+      credentials: 'same-origin',
+      body: JSON.stringify({ ids }),
+    })
+    setOrderDirty(false)
+  }
+
   return (
     <AdminLayout title="Partenaires">
       <div className="space-y-8">
+        <div className="bg-white border rounded-lg p-4">
+          <h2 className="text-lg font-semibold mb-2">Groupe (key)</h2>
+          <div className="flex items-center gap-2 max-w-3xl">
+            <input className="border px-3 py-2 rounded w-72" placeholder="Ex: home, sponsors, footer..." value={currentKey} onChange={(e) => setCurrentKey(e.target.value)} />
+            <button className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800" onClick={load}>Charger</button>
+            {orderDirty && (
+              <button className="ml-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" onClick={saveOrder}>Enregistrer l'ordre</button>
+            )}
+          </div>
+          <p className="text-sm text-gray-600 mt-2">Laissez vide pour le groupe par défaut (key null).</p>
+        </div>
         <div className="bg-gray-50 border rounded-lg p-4">
           <h2 className="text-lg font-semibold mb-2">Ajouter un partenaire</h2>
           <div className="grid sm:grid-cols-3 gap-2 max-w-3xl">
@@ -96,8 +135,15 @@ export default function AdminPartners({ partners }: { partners?: PartnerItem[] }
         <div>
           <h2 className="text-lg font-semibold mb-3">Liste</h2>
           <ul className="space-y-2">
-            {items.map((p) => (
-              <li key={p.id} className="border rounded-lg p-4 flex items-center justify-between">
+            {items.map((p, idx) => (
+              <li
+                key={p.id}
+                className={`border rounded-lg p-4 flex items-center justify-between ${dragIndex === idx ? 'bg-gray-50' : ''}`}
+                draggable
+                onDragStart={() => onDragStart(idx)}
+                onDragOver={(e) => onDragOver(e, idx)}
+                onDrop={onDrop}
+              >
                 <div className="flex items-center gap-3">
                   {p.logoUrl && <img src={p.logoUrl} alt={p.name} className="h-10 w-10 object-contain" />}
                   <div>

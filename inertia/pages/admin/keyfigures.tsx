@@ -8,13 +8,14 @@ function getCookie(name: string) {
   return ''
 }
 
-interface KeyFigureItem { id?: number; title: string; value: number }
+interface KeyFigureItem { id?: number; title: string; value: number; unit?: string | null }
 
 export default function AdminKeyFigures({ keyFigures }: { keyFigures?: KeyFigureItem[] }) {
   const [items, setItems] = useState<KeyFigureItem[]>(keyFigures || [])
   const [title, setTitle] = useState('')
   const [value, setValue] = useState<string>('')
   const [message, setMessage] = useState<string | null>(null)
+  const [unit, setUnit] = useState<string>('')
   const [orderDirty, setOrderDirty] = useState(false)
   const [editedDirty, setEditedDirty] = useState(false)
   const [editedIds, setEditedIds] = useState<Set<number>>(new Set())
@@ -44,10 +45,11 @@ export default function AdminKeyFigures({ keyFigures }: { keyFigures?: KeyFigure
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '' },
       credentials: 'same-origin',
-      body: JSON.stringify({ title: title.trim(), value: num }),
+      body: JSON.stringify({ title: title.trim(), value: num, unit: unit.trim() || null }),
     })
     setTitle('')
     setValue('')
+    setUnit('')
     setMessage('Chiffre clé ajouté ✅')
     await load()
   }
@@ -58,7 +60,7 @@ export default function AdminKeyFigures({ keyFigures }: { keyFigures?: KeyFigure
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json', 'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '' },
       credentials: 'same-origin',
-      body: JSON.stringify({ title: item.title, value: item.value }),
+      body: JSON.stringify({ title: item.title, value: item.value, unit: (item.unit ?? null) }),
     })
     await load()
   }
@@ -121,7 +123,7 @@ export default function AdminKeyFigures({ keyFigures }: { keyFigures?: KeyFigure
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json', 'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') || '' },
           credentials: 'same-origin',
-          body: JSON.stringify({ title: it.title, value: it.value }),
+          body: JSON.stringify({ title: it.title, value: it.value, unit: (it.unit ?? null) }),
         })
       }
 
@@ -149,10 +151,11 @@ export default function AdminKeyFigures({ keyFigures }: { keyFigures?: KeyFigure
       <div className="space-y-8">
         <div className="bg-gray-50 border rounded-lg p-4">
           <h2 className="text-lg font-semibold mb-2">Ajouter un chiffre clé</h2>
-          <div className="grid sm:grid-cols-3 gap-2 max-w-3xl">
+          <div className="grid sm:grid-cols-4 gap-2 max-w-4xl">
             <input className="border px-3 py-2 rounded" placeholder="Titre" value={title} onChange={(e) => setTitle(e.target.value)} />
             <input className="border px-3 py-2 rounded" placeholder="Chiffre" value={value} onChange={(e) => setValue(e.target.value)} />
-            <div className="sm:col-span-3">
+            <input className="border px-3 py-2 rounded" placeholder="Unité (ex: % / km / M€)" value={unit} onChange={(e) => setUnit(e.target.value)} />
+            <div className="sm:col-span-4">
               <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" onClick={add}>Ajouter</button>
               {message && <span className="ml-3 text-green-700">{message}</span>}
             </div>
@@ -198,6 +201,18 @@ export default function AdminKeyFigures({ keyFigures }: { keyFigures?: KeyFigure
                       const num = Number(v)
                       const copy = [...items]
                       copy[idx] = { ...it, value: Number.isNaN(num) ? (copy[idx].value || 0) : num }
+                      setItems(copy)
+                      setEditedDirty(true)
+                      if (copy[idx].id) setEditedIds(new Set([...(Array.from(editedIds)), copy[idx].id!]))
+                    }}
+                  />
+                  <input
+                    className="border px-3 py-2 rounded w-36"
+                    placeholder="Unité"
+                    value={it.unit ?? ''}
+                    onChange={(e) => {
+                      const copy = [...items]
+                      copy[idx] = { ...it, unit: e.target.value }
                       setItems(copy)
                       setEditedDirty(true)
                       if (copy[idx].id) setEditedIds(new Set([...(Array.from(editedIds)), copy[idx].id!]))

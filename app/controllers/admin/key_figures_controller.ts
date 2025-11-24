@@ -12,9 +12,10 @@ export default class KeyFiguresController {
   }
 
   public async create({ request, response }: HttpContext) {
-    const data = request.only(['title', 'value'])
+    const data = request.only(['title', 'value', 'unit'])
     const title = String(data.title || '').trim()
     const value = Number(data.value)
+    const unit = (data.unit === undefined || data.unit === null) ? null : String(data.unit).trim() || null
     if (!title || Number.isNaN(value)) {
       return response.status(400).send({ error: 'Les champs titre et chiffre sont requis.' })
     }
@@ -23,12 +24,12 @@ export default class KeyFiguresController {
     const last = await KeyFigure.query().orderBy('sort_order', 'desc').first()
     const nextOrder = last ? (last.sortOrder ?? 0) + 1 : 0
 
-    const item = await KeyFigure.create({ title, value, sortOrder: nextOrder })
+    const item = await KeyFigure.create({ title, value, unit, sortOrder: nextOrder })
     return { success: true, id: item.id }
   }
 
   public async update({ params, request, response }: HttpContext) {
-    const data = request.only(['title', 'value'])
+    const data = request.only(['title', 'value', 'unit'])
     const title = String(data.title || '').trim()
     const valueRaw = data.value
     if (!title || valueRaw === undefined) {
@@ -41,6 +42,7 @@ export default class KeyFiguresController {
     const item = await KeyFigure.findOrFail(params.id)
     item.title = title
     item.value = value
+    item.unit = (data.unit === undefined || data.unit === null) ? null : String(data.unit).trim() || null
     await item.save()
     return { success: true }
   }

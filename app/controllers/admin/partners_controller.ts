@@ -11,19 +11,43 @@ function sanitizeFileName(name: string) {
 }
 
 export default class PartnersController {
-  public async index({ inertia }: HttpContext) {
-    const partners = await Partner.query().orderBy('sort_order', 'asc').orderBy('created_at', 'desc')
+  public async index({ inertia, request }: HttpContext) {
+    const key = request.input('key') as string | undefined
+    const q = Partner.query()
+    if (key !== undefined) {
+      if (key === '' || key === 'null') q.whereNull('group_key')
+      else q.where('group_key', key)
+    }
+    const partners = await q.orderBy('sort_order', 'asc').orderBy('created_at', 'desc')
     return inertia.render('admin/partners', { partners })
   }
 
-  public async list() {
-    return await Partner.query().orderBy('sort_order', 'asc').orderBy('created_at', 'desc')
+  public async list({ request }: HttpContext) {
+    const key = request.input('key') as string | undefined
+    const q = Partner.query()
+    if (key !== undefined) {
+      if (key === '' || key === 'null') q.whereNull('group_key')
+      else q.where('group_key', key)
+    }
+    return await q.orderBy('sort_order', 'asc').orderBy('created_at', 'desc')
   }
 
   public async create({ request }: HttpContext) {
-    const { name, url, logoUrl } = request.only(['name', 'url', 'logoUrl'])
-    const sortOrder = Number(request.input('sortOrder') || 0)
-    const p = await Partner.create({ name, url: url || null, logoUrl: logoUrl || null, sortOrder })
+    const { name, url, logoUrl, key } = request.only(['name', 'url', 'logoUrl', 'key'])
+    // Determine next sort order within the same group key
+    const q = Partner.query()
+    if (key === undefined || key === null || key === '') q.whereNull('group_key')
+    else q.where('group_key', key)
+    const last = await q.orderBy('sort_order', 'desc').first()
+    const nextOrder = last ? (last.sortOrder ?? 0) + 1 : 0
+
+    const p = await Partner.create({
+      name,
+      url: url || null,
+      logoUrl: logoUrl || null,
+      sortOrder: nextOrder,
+      key: key || null,
+    } as any)
     return { success: true, id: p.id }
   }
 
@@ -80,5 +104,19 @@ export default class PartnersController {
 
     const publicUrl = s3PublicUrl(key)
     return { success: true, key, publicUrl }
+  }
+
+  public async reorder({ request, response }: HttpContext) {
+    const ids = request.input('ids') as number[]
+    if (!Array.isArray(ids) || ids.some((id) => typeof id !== 'number')) {
+      return response.status(400).send({ error: "Format invalide. Attendu: { ids: number[] }" })
+    }
+
+    for (let i = 0; i < ids.length; i++) {
+      const id = ids[i]
+      await Partner.query().where('id', id).update({ sort_order: i })
+    }
+
+    return { success: true }
   }
 }

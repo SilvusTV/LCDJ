@@ -70,6 +70,7 @@ router
         router.post('partners', [AdminPartnersController, 'create'])
         // Partners uploads: server-side only
         router.post('partners/upload', [AdminPartnersController, 'upload'])
+        router.post('partners/reorder', [AdminPartnersController, 'reorder'])
         router.delete('partners/:id', [AdminPartnersController, 'destroy'])
 
         // Key Figures

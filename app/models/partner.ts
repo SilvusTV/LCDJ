@@ -17,6 +17,9 @@ export default class Partner extends BaseModel {
   @column({ columnName: 'sort_order' })
   declare sortOrder: number
 
+  @column({ columnName: 'group_key' })
+  declare key: string | null
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
